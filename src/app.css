@@ -1,13 +1,13 @@
 @import 'tailwindcss';
 
-@font-face {
-	font-family: 'poppins';
-	src: url('/fonts/Poppins-Regular.ttf') format('truetype');
+@font-face{
+	font-family: 'AdobeTextPro';
+	src: url('/fonts/AdobeTextPro-Regular.ttf') format('truetype');
 }
 
-@font-face {
-	font-family: 'PlayfairDisplay';
-	src: url('/fonts/PlayfairDisplay-Regular.ttf') format('truetype');
+@font-face{
+	font-family: 'segoeui';
+	src: url('/fonts/segoeui.ttf') format('truetype');
 }
 
 @theme {
@@ -15,13 +15,13 @@
 	--color-secondary: 59, 130, 246; /* Blue */
 	--color-background: 255, 255, 255; /* White */
 
-	--font-title: poppins, sans-serif;
-	--font-content: PlayfairDisplay, serif;
+	--font-title: AdobeTextPro, serif;
+	--font-content: segoeui, sans-serif;
 }
 
 /* Add global transition for elements using theme colors */
 * {
-	transition-property: background-color, color, border-color, filter, fill, stroke;
+	transition-property: background-color, --tw-gradient-from, color, border-color, filter, fill, stroke;
 	transition-duration: 1000ms;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 

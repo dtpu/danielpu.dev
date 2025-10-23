@@ -1,8 +1,6 @@
 <script lang="ts">
 	import '../app.css';
 	import { themeStore } from '$lib/stores/themeStore.svelte';
-	import { loading } from '$lib/stores/loadingStore';
-	import Loading from '$lib/components/loading.svelte';
 	import { fade } from 'svelte/transition';
 	let { children } = $props();
 
