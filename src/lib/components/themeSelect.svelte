@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { themeStore } from '$lib/stores/themeStore.svelte';
-	import { themes } from '$lib/themes.svelte';
+	import { themes } from '$lib/data/themes.svelte';
 
 	const themePrimaries: { [key: string]: string } = {};
 	for (const themeName of Object.keys(themes)) {
@@ -21,5 +21,5 @@
 		>
 		</button>
 	{/each}
-	<h6 class="cursor-vertical-text [writing-mode:vertical-lr] text-2xl align-middle">{themeStore.name}</h6>
+	<h6 class="cursor-vertical-text [writing-mode:vertical-lr] text-2xl align-middle font-title">{themeStore.name}</h6>
 </div>

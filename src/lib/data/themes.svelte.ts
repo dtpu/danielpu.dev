@@ -2,24 +2,24 @@ export type Theme = [number, number, number][];
 
 export const themes: { [key: string]: Theme } = {
 	graphite: [
-		[75, 85, 99], // Darker Cool Gray
-		[156, 163, 175], // Light Gray
-		[255, 255, 255] // Pure White
+		[45, 55, 72],
+		[176, 190, 210],
+		[255, 255, 255]
 	],
 	synthwave: [
-		[255, 105, 180], // Pink
-		[255, 165, 0], // Orange
-		[30, 30, 30] // Dark Gray
+		[255, 20, 147],
+		[255, 140, 0],
+		[15, 15, 20]
 	],
 	ocean: [
-		[0, 191, 165], // Teal
-		[72, 149, 239], // Ocean Blue
-		[20, 52, 73] // Deep Navy
+		[0, 230, 200],
+		[30, 144, 255],
+		[10, 35, 65]
 	],
 	matcha: [
-		[136, 176, 75], // Matcha Green
-		[104, 139, 82], // Darker Matcha
-		[240, 240, 234] // Off-white
+		[136, 176, 75],
+		[80, 130, 60],
+		[240, 240, 234]
 	]
 };
 

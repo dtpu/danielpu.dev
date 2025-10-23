@@ -11,9 +11,9 @@
 }
 
 @theme {
-	--color-primary: 34, 197, 94; /* Green */
-	--color-secondary: 59, 130, 246; /* Blue */
-	--color-background: 255, 255, 255; /* White */
+	--color-background: 240, 240, 240;
+	--color-primary: 34, 34, 34;
+	--color-secondary: 85, 85, 85;
 
 	--font-title: AdobeTextPro, serif;
 	--font-content: segoeui, sans-serif;
