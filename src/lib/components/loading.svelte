@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { fade } from 'svelte/transition';
-    import SignatureAnimation from './signatureAnimation.svelte';
+	import SignatureAnimation from './signatureAnimation.svelte';
 </script>
 
 <div

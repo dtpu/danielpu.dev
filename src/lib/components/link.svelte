@@ -1,13 +1,20 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
+	import type { HTMLLinkAttributes } from 'svelte/elements';
 
-	let { href, children } = $props<{ href: string; children: Snippet }>();
+	let {
+		href,
+		children,
+		class: className,
+		...others
+	} = $props<{ href: string; class: string; children: Snippet } & HTMLLinkAttributes>();
 </script>
 
 <a
 	{href}
 	target="_blank"
-	class="relative w-fit mx-2 no-underline after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-secondary/20 after:transition-colors after:duration-300 after:content-[''] hover:after:bg-secondary/80 text-primary"
+	class="after:bg-secondary/20 hover:after:bg-secondary/80 text-primary relative mx-2 w-fit no-underline after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:transition-colors after:duration-300 after:content-[''] {className}"
+	{...others}
 >
 	{@render children()}
 </a>

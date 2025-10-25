@@ -1,14 +1,14 @@
 export function useMouseState() {
-  let isMouseEntered = $state(false);
+	let isMouseEntered = $state(false);
 
-  function setMouseEntered(value: boolean) {
-    isMouseEntered = value;
-  }
+	function setMouseEntered(value: boolean) {
+		isMouseEntered = value;
+	}
 
-  return {
-    get isMouseEntered() {
-      return isMouseEntered;
-    },
-    setMouseEntered,
-  };
+	return {
+		get isMouseEntered() {
+			return isMouseEntered;
+		},
+		setMouseEntered
+	};
 }

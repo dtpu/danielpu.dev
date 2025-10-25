@@ -1,7 +1,27 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import type { Snippet } from 'svelte';
 
-	let containerElement: HTMLUListElement;
+	interface Props {
+		as?: string;
+		childSelector?: string;
+		delay?: number;
+		class?: string;
+		style?: string;
+		children?: Snippet;
+	}
+
+	let {
+		as = 'ul',
+		childSelector = ':scope > *',
+		delay = 150,
+		class: className = '',
+		style = '',
+		children,
+		...restProps
+	}: Props = $props();
+
+	let containerElement: HTMLElement;
 	let observer: IntersectionObserver;
 
 	onMount(() => {
@@ -9,12 +29,12 @@
 			(entries) => {
 				entries.forEach((entry) => {
 					if (entry.isIntersecting) {
-						const allItems = Array.from(containerElement.querySelectorAll('li'));
-						const index = allItems.indexOf(entry.target as HTMLLIElement);
-						
+						const allItems = Array.from(containerElement.querySelectorAll(childSelector));
+						const index = allItems.indexOf(entry.target as HTMLElement);
+
 						setTimeout(() => {
 							entry.target.classList.add('visible');
-						}, index * 150);
+						}, index * delay);
 					}
 				});
 			},
@@ -26,8 +46,8 @@
 
 		// Wait for DOM to be ready, then observe items
 		setTimeout(() => {
-			const listItems = containerElement.querySelectorAll('li');
-			listItems.forEach((item) => {
+			const items = containerElement.querySelectorAll(childSelector);
+			items.forEach((item) => {
 				item.classList.add('fade-in-item');
 				observer.observe(item);
 			});
@@ -37,17 +57,19 @@
 	});
 </script>
 
-<ul bind:this={containerElement} class="text-primary pl-5" style="list-style-type: '➢  ';">
-	<slot></slot>
-</ul>
+<svelte:element this={as} bind:this={containerElement} class={className} {style} {...restProps}>
+	{@render children?.()}
+</svelte:element>
 
 <style>
 	:global(.fade-in-item) {
 		opacity: 0;
 		transform: translateY(20px);
-		transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+		transition:
+			opacity 0.8s ease-out,
+			transform 0.8s ease-out;
 	}
-	
+
 	:global(.fade-in-item.visible) {
 		opacity: 1;
 		transform: translateY(0);

@@ -8,6 +8,7 @@
 	import AnimatedList from '$lib/components/animatedList.svelte';
 	import { loading } from '$lib/stores/loadingStore';
 	import Loading from '$lib/components/loading.svelte';
+	import ProjectList from '$lib/components/projectList.svelte';
 </script>
 
 <div class="flex w-full flex-col md:flex-row">
@@ -15,42 +16,45 @@
 		class="relative w-full py-16 md:fixed md:top-0 md:left-0 md:z-10 md:h-screen md:w-[40%] md:content-center"
 	>
 		<Live2D />
-		<div
-			class="text-secondary font-title right-0 left-0 m-4 text-center text-3xl"
-		>
+		<div class="text-secondary font-title right-0 left-0 m-4 text-center text-3xl">
 			<h1>hi i'm <span class="text-primary font-black">Daniel Pu</span></h1>
 			<span class="flex w-full justify-center">
 				<hr class="border-secondary m-4 w-24 border-t-2" />
 			</span>
-			<h3 class="text-secondary text-lg italic">CS @ UWaterloo, looking for opportunities in tech!</h3>
+			<h3 class="text-secondary text-lg italic">
+				CS @ UWaterloo, looking for opportunities in tech!
+			</h3>
 		</div>
 		<Contacts />
 	</div>
 
-
 	{#if $loading}
 		<Loading />
 	{:else}
-		<div
-			class="text-primary min-h-screen w-full bg-gray-400/10 md:pl-16 md:ml-[40%] md:w-[60%]"
-		>
-			<div class="absolute md:fixed top-0 right-0 md:left-[40%] z-50 m-4 md:w-10">
+		<div class="text-primary min-h-screen w-full bg-gray-400/10 md:ml-[40%] md:w-[60%] md:pl-16">
+			<div class="absolute top-0 right-0 z-50 m-4 md:fixed md:left-[40%] md:w-10">
 				<ThemeSelect />
 			</div>
-			<div class="border-background border-l-4 md:p-8"
-				in:fade={{ delay:500, duration: 500 }}
-			>
-				<ContentSection id="about" title="about me" >
-					<AnimatedList>
+			<div class="border-background border-l-4 md:p-8" in:fade={{ delay: 500, duration: 500 }}>
+				<ContentSection id="about" title="about me" contentXPadding={true}>
+					<AnimatedList style="list-style-type: '➢  ';">
 						<li class="mt-4 mb-2 text-xl leading-relaxed">
 							<p class="flex flex-wrap">
-								Bachelor of Computer Science @ <Company href="https://uwaterloo.ca/" name="UWaterloo" src="/images/logos/uwaterloo.webp" />
+								Bachelor of Computer Science @ <Company
+									href="https://uwaterloo.ca/"
+									name="UWaterloo"
+									src="/images/logos/uwaterloo.webp"
+								/>
 							</p>
 						</li>
 						<li class="mb-2 text-xl leading-relaxed">
 							<p class="flex flex-wrap">
-								Prev. Research Programmer @ 
-								<Company href="https://research.sunnybrook.ca/" name="Sunnybrook" src="/images/logos/sunnybrook.webp" />
+								Prev. Research Programmer @
+								<Company
+									href="https://research.sunnybrook.ca/"
+									name="Sunnybrook"
+									src="/images/logos/sunnybrook.webp"
+								/>
 							</p>
 						</li>
 						<li class="mb-2 text-xl leading-relaxed">
@@ -58,22 +62,38 @@
 							<ul class="pl-5" style="list-style-type: '▹  ';">
 								<li>
 									<p class="flex flex-wrap">
-										2× Finalist @ 
-										<Company href="https://hackthenorth.com/" name="Hack the North" src="/images/logos/hackthenorth.svg" />
+										2× Finalist @
+										<Company
+											href="https://hackthenorth.com/"
+											name="Hack the North"
+											src="/images/logos/hackthenorth.svg"
+										/>
 									</p>
 								</li>
 								<li>
 									<p class="flex flex-wrap">
-										1<span class="text-[0.7em]">st</span> &nbsp;place @ 
-										<Company href="https://www.jamhacks.ca/" name="JAMHacks" src="/images/logos/jamhacks.png" />
+										1<span class="text-[0.7em]">st</span> &nbsp;place @
+										<Company
+											href="https://www.jamhacks.ca/"
+											name="JAMHacks"
+											src="/images/logos/jamhacks.png"
+										/>
 									</p>
 								</li>
 								<li>
-									<p class="flex break-words flex-wrap">
+									<p class="flex flex-wrap break-words">
 										Organizing
-										<Company href="https://www.uwdatascience.ca/cxc" name="CxC" src="/images/logos/dsc.png" />
-										and 
-										<Company href="https://hackthe6ix.com/" name="HT6" src="/images/logos/ht6.jpg" />
+										<Company
+											href="https://www.uwdatascience.ca/cxc"
+											name="CxC"
+											src="/images/logos/dsc.png"
+										/>
+										and
+										<Company
+											href="https://hackthe6ix.com/"
+											name="HT6"
+											src="/images/logos/ht6.jpg"
+										/>
 									</p>
 								</li>
 							</ul>
@@ -83,17 +103,19 @@
 							tech.
 						</li>
 						<li class="mb-2 text-xl leading-relaxed">
-							In my free time, you can find me playing badminton, working on
-							cool projects, or listening to music!
+							In my free time, you can find me playing badminton, working on cool projects, or
+							listening to music!
 						</li>
 					</AnimatedList>
 				</ContentSection>
 
-				<ContentSection id="skills" title="skills">
-					<p class="text-primary">coming soon...</p>
+				<ContentSection id="projects" title="projects">
+					<AnimatedList as="div" childSelector=".bento-grid > *" delay={100}>
+						<ProjectList />
+					</AnimatedList>
 				</ContentSection>
 
-				<ContentSection id="projects" title="projects">
+				<ContentSection id="skills" title="skills">
 					<p class="text-primary">coming soon...</p>
 				</ContentSection>
 			</div>

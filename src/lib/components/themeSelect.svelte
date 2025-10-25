@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { themeStore } from '$lib/stores/themeStore.svelte';
-	import { themes } from '$lib/data/themes.svelte';
+	import { themes } from '$lib/data/themes';
 
 	const themePrimaries: { [key: string]: string } = {};
 	for (const themeName of Object.keys(themes)) {
@@ -9,7 +9,7 @@
 	}
 </script>
 
-<div class="flex flex-row gap-4 md:flex-col md:w-10">
+<div class="flex flex-row gap-4 md:w-10 md:flex-col">
 	{#each Object.entries(themePrimaries) as [themeName, colour] (themeName)}
 		<button
 			onclick={() => themeStore.setTheme(themeName)}
@@ -21,5 +21,7 @@
 		>
 		</button>
 	{/each}
-	<h6 class="cursor-vertical-text [writing-mode:vertical-lr] text-2xl align-middle font-title">{themeStore.name}</h6>
+	<h6 class="font-title cursor-vertical-text align-middle text-2xl [writing-mode:vertical-lr]">
+		{themeStore.name}
+	</h6>
 </div>

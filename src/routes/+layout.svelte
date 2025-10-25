@@ -3,7 +3,7 @@
 	import { themeStore } from '$lib/stores/themeStore.svelte';
 	import { fade } from 'svelte/transition';
 	import { browser } from '$app/environment';
-	
+
 	let { children } = $props();
 
 	function getColour(color: number[]) {
@@ -22,9 +22,6 @@
 	});
 </script>
 
-<div
-	in:fade
-	class="bg-background h-full min-h-screen w-full"
->
+<div in:fade class="bg-background h-full min-h-screen w-full">
 	{@render children()}
 </div>

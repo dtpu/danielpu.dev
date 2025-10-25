@@ -1,5 +1,5 @@
 import { browser } from '$app/environment';
-import { themes, filterSettings } from '$lib/data/themes.svelte';
+import { themes, filterSettings } from '$lib/data/themes';
 import { loading } from './loadingStore';
 
 const themeNames = Object.keys(themes);

@@ -1,5 +1,5 @@
 <script lang="ts">
-	let { src } = $props<{ src: string; }>();
+	let { src } = $props<{ src: string }>();
 </script>
 
-<img src={src} alt="" class="h-[1.6ex] w-auto mt-0.5 mr-2" />
+<img {src} alt="" class="mt-0.5 mr-2 h-[1.6ex] w-auto" />

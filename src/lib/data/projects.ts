@@ -1,84 +1,152 @@
-
 export type Project = {
-    title: string;
-    description: string;
-    link: string;
-    tech: string[];
-    image: string;
-    gridSize: "1x1" | "2x1" | "1x2" | "2x2";
+	title: string;
+	subTitle?: string; // optional subtitle (next to title)
+	oneLiner?: string; // if no one-liner, uses description instead
+	description: string; // content
+	link?: string; // link to hosted website or demo
+	github?: string; // link to github repo
+	devpost?: string; // link to devpost
+	tech: string[]; // technologies used
+	thumbnail: string; // thumbnail image URL
+	fullImage?: string; // full image URL for modal
+	imageFilter?: boolean;
+	gridSize: '1x1' | '2x1' | '1x2' | '2x2';
 };
 
 export const projects: Project[] = [
-    {
-        title: "Personal Website",
-        description: "A personal portfolio website built with SvelteKit and hosted on Vercel. Features a modern design with smooth animations, 3D card effects, and a responsive bento grid layout for showcasing projects.",
-        link: "https://www.example.com",
-        tech: ["SvelteKit", "TypeScript", "TailwindCSS", "Vercel"],
-        image: "/images/projects/personalWebsite.png",
-        gridSize: "2x2"
-    },
-    {
-        title: "E-Commerce Platform",
-        description: "Full-stack e-commerce solution with real-time inventory management, payment processing, and analytics dashboard.",
-        link: "https://www.example.com",
-        tech: ["React", "Node.js", "MongoDB", "Stripe"],
-        image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80",
-        gridSize: "1x2"
-    },
-    {
-        title: "Weather App",
-        description: "Real-time weather application with location services and 7-day forecasts.",
-        link: "https://www.example.com",
-        tech: ["Vue.js", "OpenWeather API"],
-        image: "https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800&q=80",
-        gridSize: "1x1"
-    },
-    {
-        title: "Task Manager",
-        description: "Collaborative task management tool with drag-and-drop functionality, real-time updates, and team collaboration features.",
-        link: "https://www.example.com",
-        tech: ["Next.js", "Prisma", "PostgreSQL", "tRPC"],
-        image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
-        gridSize: "2x1"
-    },
-    {
-        title: "Fitness Tracker",
-        description: "Mobile-first fitness tracking app with workout logging and progress visualization.",
-        link: "https://www.example.com",
-        tech: ["React Native", "Firebase"],
-        image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&q=80",
-        gridSize: "1x1"
-    },
-    {
-        title: "AI Chat Bot",
-        description: "Intelligent chatbot powered by GPT-4 with context awareness and natural language processing capabilities.",
-        link: "https://www.example.com",
-        tech: ["Python", "OpenAI", "FastAPI", "Redis"],
-        image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
-        gridSize: "1x2"
-    },
-    {
-        title: "Music Player",
-        description: "Sleek music streaming application with playlist management and recommendations.",
-        link: "https://www.example.com",
-        tech: ["Angular", "Spotify API"],
-        image: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=800&q=80",
-        gridSize: "1x1"
-    },
-    {
-        title: "Code Editor",
-        description: "Browser-based code editor with syntax highlighting, live preview, and collaborative editing features.",
-        link: "https://www.example.com",
-        tech: ["Monaco Editor", "WebSockets", "Docker"],
-        image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=80",
-        gridSize: "2x1"
-    },
-    {
-        title: "Recipe Finder",
-        description: "Discover recipes based on ingredients with nutritional information and meal planning.",
-        link: "https://www.example.com",
-        tech: ["Svelte", "Spoonacular API"],
-        image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&q=80",
-        gridSize: "1x1"
-    }
-]
+	{
+		title: 'Personal Website',
+		description: 'My personal portfolio website. Made with love.',
+		link: 'https://www.danielpu.dev',
+		github: 'https://github.com/danielp1218/PersonalWebsite',
+		tech: ['SvelteKit', 'TypeScript', 'TailwindCSS', 'Live2DCubism'],
+		thumbnail: '/images/projects/personalWebsite.gif',
+		imageFilter: true,
+		gridSize: '2x2'
+	},
+	{
+		title: 'Mr. Goose',
+		subTitle: '1st Overall @ JamHacks 2025',
+		oneLiner: 'A coding copilot that actually helps you learn.',
+		description:
+			'Built as a VSCode extension, Mr. Goose uses LLMs to provide context-aware hints to developers stuck on coding problems. Mr. Goose uses smart routing between multiple chat models based on the complexity of a certain problem.',
+		github: 'https://github.com/Skilled5041/jamhacks-2025',
+		tech: ['Typescript', 'VSCode Extension API', 'OpenAI', 'Gemini', 'Websockets'],
+		thumbnail: '/images/projects/mrgoose.gif',
+		fullImage: '/images/projects/mrgoose.png',
+		gridSize: '1x2'
+	},
+	{
+		title: 'Maatchaa',
+		subTitle: 'Finalist @ HackTheNorth 2025',
+		oneLiner: 'Match your content to the right sponsors',
+		description:
+			'Maatchaa automatically matches Shopify products with trending YouTube Shorts. Businesses can browse potential creator partnerships, tinder style. Uses multi-modal embeddings for videos and AI-generated visuals for product sets.',
+		link: 'https://maatchaa.vercel.app/',
+		github: 'https://github.com/StockerMC/Maatchaa',
+		devpost: 'https://devpost.com/software/maatchaa',
+		tech: ['Next.js', 'Python', 'YouTube API', 'Cohere', 'Gemini', 'Pinecone'],
+		thumbnail: '/images/projects/maatchaa.gif',
+		fullImage: '/images/projects/maatchaa.png',
+		gridSize: '1x1'
+	},
+	{
+		title: 'Dime Defender',
+		subTitle: 'Finalist @ HackTheNorth 2024',
+        oneLiner: 'Extension to forcibly stop shopping sprees!',
+		description: 'Chrome extension that interjects when users make impulsive purchases online. Uses 2 interactive, vocal AI agents to debate the pros and cons of the purchase.',
+		github: 'https://github.com/aryanp05/hackthenorth24',
+        devpost: 'https://devpost.com/software/budget-defender',
+		tech: ['AWS', 'ElevenLabs', 'Javascript', 'Plasmo', 'Python', 'Svelte'],
+		thumbnail: '/images/projects/dimedefender.gif',
+		gridSize: '2x1'
+	},
+	{
+		title: 'rainbolt.ai',
+		subTitle: 'Best UI @ HackTheValley X',
+		oneLiner: 'Bolt across the world with rainbolt.ai!',
+		description: 'Upload any image of a location, and rainbolt.ai identifies it. Shows its reasoning process: recognizing telephone poles, road signs, and vegetation. Grounded using over 900k geotagged images and documents.',
+		link: 'https://www.rainboltai.gay/',
+		github: 'https://github.com/danielp1218/rainbolt.ai',
+		devpost: 'https://devpost.com/software/rainbolt-ai',
+		tech: ['Next.js', 'FastAPI', 'OpenAI CLIP','LangChain', 'Pinecone', 'Firebase', 'Auth0', 'Gemini'],
+		thumbnail: 'images/projects/rainboltai.gif',
+		fullImage: 'images/projects/rainboltai.png',
+		gridSize: '2x1'
+	},
+	{
+		title: 'Suika Game',
+		description:
+			'Recreation of the Suika game in pure Java Swing. Wrote 2d physics engine from scratch.',
+		link: 'https://www.youtube.com/watch?v=nTVNkSFv_mU',
+		github: 'https://github.com/danielp1218/SuikaGame',
+		tech: ['Java'],
+		thumbnail: '/images/projects/suikagame.gif',
+		gridSize: '1x2'
+	},
+	{
+		title: 'IgniteAI',
+		subTitle: 'Top 4 @ NSBEHacks 2024',
+		oneLiner: 'Interactive web-app for exploring career pathways',
+		description:
+			"Website inspired by Little Alchemy series and Infinite Craft. Drag 'career' and 'subject' blocks into each other and watch what career lies at their intersection!",
+		link: 'https://igniteai.vercel.app',
+		tech: ['Svelte-kit', 'OpenAI', 'PocketBase', 'SQLite'],
+		thumbnail: '/images/projects/igniteai.gif',
+		fullImage: '/images/projects/igniteai.png',
+		gridSize: '1x1'
+	},
+	{
+		title: 'BF Interpreter',
+		description:
+			'Simple, fast, and clean Brainf**k interpreter with web-based IDE.',
+		link: 'https://danielp1218.github.io/BFInterpreter/',
+		github: 'https://github.com/danielp1218/BFInterpreter',
+		tech: ['Javascript', 'HTML', 'CSS'],
+		thumbnail: '/images/projects/bfinterpreter.png',
+		gridSize: '1x1'
+	},
+	{
+		title: 'WebSight',
+		subTitle: 'Best Use of Gemini @ TerraHacks 2025',
+		oneLiner: 'The web-vision comfort optimizer',
+		description:
+			'Personalized, self-learning web-vision assistant that manipulates webpages to your preferences. Uses eye tracking and facial expression analysis to optimize text readability. AI learns your preferences and adjusts settings to reduce eye strain.',
+		github: 'https://github.com/danielp1218/TerraHacks2025',
+		devpost: 'https://devpost.com/software/websight-zls856',
+		tech: ['WXT', 'FastAPI', 'PyTorch', 'TypeScript', 'React', 'Gemini', 'WebGazer.js'],
+		thumbnail: '/images/projects/websight.gif',
+		fullImage: '/images/projects/websight.png',
+		gridSize: '2x1'
+	},
+	{
+		title: 'Google Minesweeper Bot',
+		description:
+			'An automated bot to play Google Minesweeper using computer vision and a custom algorithm.',
+		github: 'https://github.com/danielp1218/GoogleMinesweeperBot',
+		tech: ['Python', 'win32', 'PyAutoGUI', 'Numpy', 'Pillow'],
+		thumbnail: '/images/projects/googleminesweeper.gif',
+		gridSize: '1x1'
+	},
+	{
+		title: 'The Pet Sentinel',
+		subTitle: '1st Place - Virtual @ STEMist Hacks III',
+		oneLiner: 'A handy tool to help monitor your pets',
+		description: 'Keeps you connected to your pet at all times, ensuring their safety and your peace of mind. Trained a YOLO model on self-labelled dataset. Used websockets to stream real-time detections to a web-app.',
+		github: 'https://github.com/danielp1218/STEMistHacks-3.0',
+		devpost: 'https://devpost.com/software/the-pet-sentinel',
+		tech: ['Python', 'FastAPI', 'OpenCV', 'YOLOv9', 'Pytorch', 'Raspberry Pi', 'Roboflow', 'SvelteKit', 'TypeScript', 'Tailwind', 'Websockets'],
+		thumbnail: '/images/projects/petsentinel.gif',
+		gridSize: '1x1'
+	},
+	{
+		title: 'Pawditor',
+		oneLiner: 'An army of cats to test your website!',
+		description: 'Automated web testing platform using AI agents to simulate real users and attackers. Finds broken flows, UI bugs, security issues, and outputs a JSON/Markdown report with suggested fixes. Fun, memorable UX with cat-themed personas.',
+		github: 'https://github.com/StockerMC/spurhacks2025/',
+		devpost: 'https://devpost.com/software/pawditor',
+		tech: ['SvelteKit', 'TypeScript', 'Playwright', 'Gemini', 'ElysiaJS', 'Docker', 'Supabase', 'Google Cloud'],
+		thumbnail: '/images/projects/pawditor.jpg',
+		gridSize: '2x1'
+	}
+];

@@ -1,11 +1,11 @@
 @import 'tailwindcss';
 
-@font-face{
+@font-face {
 	font-family: 'AdobeTextPro';
 	src: url('/fonts/AdobeTextPro-Regular.ttf') format('truetype');
 }
 
-@font-face{
+@font-face {
 	font-family: 'segoeui';
 	src: url('/fonts/segoeui.ttf') format('truetype');
 }
@@ -21,7 +21,9 @@
 
 /* Add global transition for elements using theme colors */
 * {
-	transition-property: background-color, --tw-gradient-from, color, border-color, filter, fill, stroke;
+	transition-property:
+		background-color, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, color, border-color,
+		filter, fill, stroke;
 	transition-duration: 1000ms;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
