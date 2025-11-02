@@ -4,7 +4,7 @@
 	import CardBody from '$lib/components/3dCard/cardBody.svelte';
 	import CardItem from '$lib/components/3dCard/cardItem.svelte';
 
-	const { project, onclick } = $props<{
+	const { project, onclick }: { project: Project; onclick?: () => void } = $props<{
 		project: Project;
 		onclick?: () => void;
 	}>();

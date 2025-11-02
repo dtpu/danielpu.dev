@@ -10,7 +10,7 @@
 	import Website from './icons/website.svelte';
 	import Link from './link.svelte';
 
-	const { project, onClose } = $props<{
+	const { project, onClose }: { project: Project; onClose: () => void } = $props<{
 		project: Project;
 		onClose: () => void;
 	}>();
@@ -144,7 +144,7 @@
 							{/if}
 							{#if project.devpost}
 								<Link
-									href={project.link}
+									href={project.devpost}
 									rel="noopener noreferrer"
 									class="mx-2 flex items-center gap-1 py-1.5 text-xs font-medium transition-colors sm:gap-1 sm:py-2 sm:text-sm"
 									aria-label="View on Devpost"

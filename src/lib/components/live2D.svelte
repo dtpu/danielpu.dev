@@ -2,8 +2,8 @@
 	import { onMount, onDestroy } from 'svelte';
 
 	let live2DCanvas: HTMLCanvasElement | null;
-	let lappDelegate: any = null;
-	let live2dManager: any = null;
+	let lappDelegate: any = null; // eslint-disable-line @typescript-eslint/no-explicit-any
+	let live2dManager: any = null; // eslint-disable-line @typescript-eslint/no-explicit-any
 
 	onMount(async () => {
 		const { Live2DCubismCore } = await import('$lib/live2d/Core/live2dcubismcore.min.js');
@@ -29,11 +29,13 @@
 
 	// change expression
 	// Happy, Smug, peeking, what, sad, Normal
+	/* eslint-disable @typescript-eslint/no-unused-vars */
 	function setExpression(expressionName: string) {
 		if (live2dManager) {
 			live2dManager.setExpression(expressionName);
 		}
 	}
+	/* eslint-enable @typescript-eslint/no-unused-vars */
 </script>
 
 <canvas
