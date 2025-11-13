@@ -8,7 +8,7 @@
 	import AnimatedList from '$lib/components/animatedList.svelte';
 	import { loading } from '$lib/stores/loadingStore';
 	import Loading from '$lib/components/loading.svelte';
-	import ProjectList from '$lib/components/projectList.svelte';
+	import ProjectList from '$lib/components/projects/projectList.svelte';
 </script>
 
 <div class="flex w-full flex-col md:flex-row">

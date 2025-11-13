@@ -1,6 +1,6 @@
 <script lang="ts">
-	import ProjectCard from '$lib/components/projectCard.svelte';
-	import ProjectModal from '$lib/components/projectModal.svelte';
+	import ProjectCard from '$lib/components/projects/projectCard.svelte';
+	import ProjectModal from '$lib/components/projects/projectModal.svelte';
 	import { projects } from '$lib/data/projects';
 	import type { Project } from '$lib/data/projects';
 

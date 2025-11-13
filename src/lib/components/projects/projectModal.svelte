@@ -4,12 +4,11 @@
 	import { fade, scale } from 'svelte/transition';
 	import { cubicOut } from 'svelte/easing';
 	import type { Project } from '$lib/data/projects';
-	import CardItem from './3dCard/cardItem.svelte';
-	import Github from './icons/github.svelte';
-	import Devpost from './icons/devpost.svelte';
-	import Website from './icons/website.svelte';
-	import Link from './link.svelte';
-
+	import CardItem from '$lib/components/3dCard/cardItem.svelte';
+	import Github from '$lib/components/icons/github.svelte';
+	import Devpost from '$lib/components/icons/devpost.svelte';
+	import Website from '$lib/components/icons/website.svelte';
+	import Link from '$lib/components/link.svelte';
 	const { project, onClose }: { project: Project; onClose: () => void } = $props<{
 		project: Project;
 		onClose: () => void;
