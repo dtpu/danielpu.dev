@@ -9,16 +9,36 @@
 	}
 </script>
 
+<style>
+	.expand-circle {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		width: 100%;
+		aspect-ratio: 1;
+		transform: translate(-50%, -50%) scale(0);
+		border-radius: 50%;
+		background-color: rgba(255, 255, 255, 0.2);
+		transition: transform 0.5s ease-in-out;
+	}
+
+	.active .expand-circle {
+		transform: translate(-50%, -50%) scale(1.5);
+	}
+</style>
+
 <div class="flex flex-row gap-4 md:w-10 md:flex-col">
 	{#each Object.entries(themePrimaries) as [themeName, colour] (themeName)}
 		<button
 			onclick={() => themeStore.setTheme(themeName)}
 			aria-label="Change Theme to {themeName}"
-			class={`bg-primary relative aspect-square h-4 w-4
+			class={`bg-primary group relative aspect-square h-4 w-4
             items-center justify-center overflow-hidden rounded-full border-2
-            border-gray-400/10 p-4 hover:border-black/20 focus:outline-none ${themeStore.name === themeName ? 'ring-primary ring-2 ring-offset-2' : ''}`}
+			transition-[border-color] duration-100 ease-out
+            border-gray-400/10 hover:border-gray-400/50 p-4  focus:outline-none ${themeStore.name === themeName ? 'ring-primary ring-2 ring-offset-2 active' : ''}`}
 			style="background-color: {colour};"
 		>
+			<span class="expand-circle"></span>
 		</button>
 	{/each}
 	<h6 class="font-title cursor-vertical-text align-middle text-2xl [writing-mode:vertical-lr]">
