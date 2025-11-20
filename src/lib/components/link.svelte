@@ -5,15 +5,16 @@
 	let {
 		href,
 		children,
-		class: className,
+		class: className = '',
 		...others
-	} = $props<{ href: string; class: string; children: Snippet } & HTMLLinkAttributes>();
+	} = $props<{ href: string; class?: string; children: Snippet } & HTMLLinkAttributes>();
 </script>
 
 <a
 	{href}
 	target="_blank"
-	class="after:bg-secondary/20 hover:after:bg-secondary/80 text-primary relative mx-2 w-fit no-underline after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:transition-colors after:duration-300 after:content-[''] {className}"
+	rel="noopener noreferrer"
+	class="after:bg-secondary/20 hover:after:bg-secondary/80 relative mx-2 w-fit no-underline after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:transition-colors after:duration-300 after:content-[''] {className}"
 	{...others}
 >
 	{@render children()}

@@ -9,6 +9,7 @@
 	import { loading } from '$lib/stores/loadingStore';
 	import Loading from '$lib/components/loading.svelte';
 	import ProjectList from '$lib/components/projects/projectList.svelte';
+	import Footer from '$lib/components/footer.svelte';
 </script>
 
 <div class="flex w-full flex-col md:flex-row">
@@ -31,93 +32,109 @@
 	{#if $loading}
 		<Loading />
 	{:else}
-		<div class="text-primary min-h-screen w-full bg-gray-400/10 md:ml-[40%] md:w-[60%] md:pl-16">
-			<div class="absolute top-0 right-0 z-50 m-4 md:fixed md:left-[40%] md:w-10">
-				<ThemeSelect />
+		<div
+			class="text-primary flex min-h-screen w-full flex-col bg-gray-400/10 md:ml-[40%] md:w-[60%] md:flex-row"
+		>
+			<div class="relative hidden w-16 flex-none md:block">
+				<div class="sticky top-4 mx-auto mt-20 w-10">
+					<ThemeSelect />
+				</div>
 			</div>
-			<div class="border-background border-l-4 md:p-8" in:fade={{ delay: 500, duration: 500 }}>
-				<ContentSection id="about" title="about me" contentXPadding={true}>
-					<AnimatedList style="list-style-type: '➢  ';">
-						<li class="mt-4 mb-2 text-xl leading-relaxed">
-							<p class="flex flex-wrap">
-								Bachelor of Computer Science @ <Company
-									href="https://uwaterloo.ca/"
-									name="UWaterloo"
-									src="/images/logos/uwaterloo.webp"
-								/>
-							</p>
-						</li>
-						<li class="mb-2 text-xl leading-relaxed">
-							<p class="flex flex-wrap">
-								Prev. Research Programmer @
-								<Company
-									href="https://research.sunnybrook.ca/"
-									name="Sunnybrook"
-									src="/images/logos/sunnybrook.webp"
-								/>
-							</p>
-						</li>
-						<li class="mb-2 text-xl leading-relaxed">
-							<strong>16×</strong> hackathon winner, <strong>21×</strong> participant
-							<ul class="pl-5" style="list-style-type: '▹  ';">
-								<li>
-									<p class="flex flex-wrap">
-										2× Finalist @
-										<Company
-											href="https://hackthenorth.com/"
-											name="Hack the North"
-											src="/images/logos/hackthenorth.svg"
-										/>
-									</p>
-								</li>
-								<li>
-									<p class="flex flex-wrap">
-										1<span class="text-[0.7em]">st</span> &nbsp;place @
-										<Company
-											href="https://www.jamhacks.ca/"
-											name="JAMHacks"
-											src="/images/logos/jamhacks.png"
-										/>
-									</p>
-								</li>
-								<li>
-									<p class="flex flex-wrap break-words">
-										Organizing
-										<Company
-											href="https://www.uwdatascience.ca/cxc"
-											name="CxC"
-											src="/images/logos/dsc.png"
-										/>
-										and
-										<Company
-											href="https://hackthe6ix.com/"
-											name="HT6"
-											src="/images/logos/ht6.jpg"
-										/>
-									</p>
-								</li>
-							</ul>
-						</li>
-						<li class="mb-2 text-xl leading-relaxed">
-							Passionate about <strong>full-stack</strong>, <strong>AI/ML</strong>, and all things
-							tech.
-						</li>
-						<li class="mb-2 text-xl leading-relaxed">
-							In my free time, you can find me playing badminton, working on cool projects, or
-							listening to music!
-						</li>
-					</AnimatedList>
-				</ContentSection>
+			<div class="flex w-full flex-1 flex-col">
+				<div class="absolute top-0 right-0 z-50 m-4 md:hidden">
+					<ThemeSelect />
+				</div>
 
-				<ContentSection id="projects" title="projects">
-					<AnimatedList as="div" childSelector=".bento-grid > *" delay={100}>
-						<ProjectList />
-					</AnimatedList>
-				</ContentSection>
+				<!-- only on pc-->
+				<div
+					class="border-background text-secondary z-50 hidden border-b-4 p-4 text-center text-sm md:block md:p-8"
+				></div>
+				<div class="border-background border-l-4 md:p-8" in:fade={{ delay: 500, duration: 500 }}>
+					<ContentSection id="about" title="about me" contentXPadding={true}>
+						<AnimatedList style="list-style-type: '➢  ';">
+							<li class="mt-4 mb-2 text-xl leading-relaxed">
+								<p class="flex flex-wrap">
+									Bachelor of Computer Science @ <Company
+										href="https://uwaterloo.ca/"
+										name="UWaterloo"
+										src="/images/logos/uwaterloo.webp"
+									/>
+								</p>
+							</li>
+							<li class="mb-2 text-xl leading-relaxed">
+								<p class="flex flex-wrap">
+									Prev. Research Programmer @
+									<Company
+										href="https://research.sunnybrook.ca/"
+										name="Sunnybrook"
+										src="/images/logos/sunnybrook.webp"
+									/>
+								</p>
+							</li>
+							<li class="mb-2 text-xl leading-relaxed">
+								<strong>16×</strong> hackathon winner, <strong>21×</strong> participant
+								<ul class="pl-5" style="list-style-type: '▹  ';">
+									<li>
+										<p class="flex flex-wrap">
+											2× Finalist @
+											<Company
+												href="https://hackthenorth.com/"
+												name="Hack the North"
+												src="/images/logos/hackthenorth.svg"
+											/>
+										</p>
+									</li>
+									<li>
+										<p class="flex flex-wrap">
+											1<span class="text-[0.7em]">st</span> &nbsp;place @
+											<Company
+												href="https://www.jamhacks.ca/"
+												name="JAMHacks"
+												src="/images/logos/jamhacks.png"
+											/>
+										</p>
+									</li>
+									<li>
+										<p class="flex flex-wrap break-words">
+											Organizing
+											<Company
+												href="https://www.uwdatascience.ca/cxc"
+												name="CxC"
+												src="/images/logos/dsc.png"
+											/>
+											and
+											<Company
+												href="https://hackthe6ix.com/"
+												name="HT6"
+												src="/images/logos/ht6.jpg"
+											/>
+										</p>
+									</li>
+								</ul>
+							</li>
+							<li class="mb-2 text-xl leading-relaxed">
+								Passionate about <strong>full-stack</strong>, <strong>AI/ML</strong>, and all things
+								tech.
+							</li>
+							<li class="mb-2 text-xl leading-relaxed">
+								In my free time, you can find me playing badminton, working on cool projects, or
+								listening to music!
+							</li>
+						</AnimatedList>
+					</ContentSection>
 
-				<ContentSection id="skills" title="skills">
-					<p class="text-primary">coming soon...</p>
-				</ContentSection>
+					<ContentSection id="projects" title="projects">
+						<AnimatedList as="div" childSelector=".bento-grid > *" delay={100}>
+							<ProjectList />
+						</AnimatedList>
+					</ContentSection>
+
+					<ContentSection id="skills" title="skills">
+						<p class="text-primary">coming soon...</p>
+					</ContentSection>
+					<div class="p-10"></div>
+				</div>
+				<Footer />
 			</div>
 		</div>
 	{/if}
