@@ -54,7 +54,7 @@ const uptimeFetcher = (
 	);
 };
 
-const getAllPATs = () => {
+const getAllPATs = (): string[] => {
 	return Object.keys(process.env).filter((key) => /PAT_\d*$/.exec(key));
 };
 

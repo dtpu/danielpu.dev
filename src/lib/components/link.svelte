@@ -8,6 +8,9 @@
 		class: className = '',
 		...others
 	} = $props<{ href: string; class?: string; children: Snippet } & HTMLLinkAttributes>();
+	
+	// External link - no need for resolve()
+	/* eslint-disable svelte/no-navigation-without-resolve */
 </script>
 
 <a

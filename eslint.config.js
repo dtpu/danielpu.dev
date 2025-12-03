@@ -24,7 +24,7 @@ export default ts.config(
 		}
 	},
 	{
-		ignores: ['**/..*', '**/build', '**/dist', 'src/lib/live2d/**', 'static/**']
+		ignores: ['**/..*', '**/build', '**/dist', 'src/lib/live2d/**', 'static/**', 'packages/**']
 	},
 	{
 		files: ['**/*.svelte', '**/*.svelte.ts', '**/*.svelte.js'],

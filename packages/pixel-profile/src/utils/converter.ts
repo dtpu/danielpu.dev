@@ -35,7 +35,6 @@ export async function getBase64FromPixels(
 	height: number
 ): Promise<string> {
 	return new Promise((resolve) => {
-		 
 		new Jimp(width, height, (_, image) => {
 			image.bitmap.data = pixels;
 			image.getBase64('image/png', (_, str) => {
@@ -51,7 +50,6 @@ export function getPngBufferFromPixels(
 	height: number
 ): Promise<Buffer> {
 	return new Promise((resolve) => {
-		 
 		new Jimp(width, height, function (_, image) {
 			image.bitmap.data = pixelsBuffer;
 			image.getBuffer('image/png', function (_, buffer) {

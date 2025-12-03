@@ -34,8 +34,7 @@ const GRAPHQL_REPOS_QUERY = `
   }
 `;
 
-// eslint-disable-next-line eslint-comments/disable-enable-pair
-const GRAPHQL_STATS_QUERY =   `
+const GRAPHQL_STATS_QUERY = `
   query userInfo($login: String!, $after: String, $includeMergedPullRequests: Boolean!, $includeDiscussions: Boolean!, $includeDiscussionsAnswers: Boolean!, $contributionFrom: DateTime) {
     user(login: $login) {
       name

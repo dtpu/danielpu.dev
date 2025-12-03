@@ -30,8 +30,17 @@
 		"vite": "^6.0.0"
 	},
 	"dependencies": {
+		"@resvg/resvg-js": "2.6.0",
 		"@vercel/blob": "^2.0.0",
-		"pixel-profile-server": "workspace:*"
+		"axios": "^1.9.0",
+		"dotenv": "^16.3.1",
+		"emoji-name-map": "^1.2.8",
+		"github-username-regex": "^1.0.0",
+		"jimp": "^0.22.10",
+		"satori": "^0.10.11",
+		"pixel-profile": "workspace:*",
+		"pixel-profile-server": "workspace:*",
+		"pixel-profile-utils": "workspace:*"
 	},
 	"private": true,
 	"scripts": {
@@ -41,8 +50,8 @@
 		"prepare": "svelte-kit sync || echo ''",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"format": "prettier --write .",
-		"lint": "prettier --check . && eslint ."
+		"format": "prettier . --write",
+		"lint": "eslint ."
 	},
 	"type": "module"
 }

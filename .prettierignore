@@ -7,3 +7,6 @@ src/lib/live2d
 static
 src/routes/test
 src/lib/data
+node_modules
+packages
+.bun

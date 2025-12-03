@@ -6,7 +6,7 @@ import { AxiosResponse } from 'axios';
 
 // Count the number of GitHub API tokens available.
 const PATs = () => Object.keys(process.env).filter((key) => /PAT_\d*$/.exec(key)).length;
-const RETRIES = () => process.env.NODE_ENV === 'test' ? 7 : PATs();
+const RETRIES = () => (process.env.NODE_ENV === 'test' ? 7 : PATs());
 
 type FetcherFunction = (
 	variables: Record<PropertyKey, unknown>,
