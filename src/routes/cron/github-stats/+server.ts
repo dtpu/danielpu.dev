@@ -3,7 +3,7 @@ import { put } from '@vercel/blob';
 const relativeImagePath =
 	'/api/github-stats?username=danielp1218&dithering=true&include_all_commits=true&pixelate_avatar=false&theme=fuji&color=%23ffffffFF&hide=issues';
 
-export const POST = async (req) => {
+export const GET = async (req) => {
 	const fullURL = new URL(req.url);
 	const imageURL = `${fullURL.origin}${relativeImagePath}`;
 	return fetch(`${imageURL}`)
