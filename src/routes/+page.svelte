@@ -44,11 +44,6 @@
 				<div class="absolute top-0 right-0 z-50 m-4 md:hidden">
 					<ThemeSelect />
 				</div>
-
-				<!-- only on pc-->
-				<div
-					class="border-background text-secondary z-50 hidden border-b-4 p-4 text-center text-sm md:block md:p-8"
-				></div>
 				<div class="border-background border-l-4 md:p-8" in:fade={{ delay: 500, duration: 500 }}>
 					<ContentSection id="about" title="about me" contentXPadding={true}>
 						<AnimatedList style="list-style-type: '➢  ';">

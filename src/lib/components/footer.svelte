@@ -4,7 +4,7 @@
 
 <footer>
 	<div
-		class="border-background text-secondary flex flex-col items-center justify-between gap-4 border-t-4 p-4 text-center text-sm md:flex-row md:p-8"
+		class="border-background border-l-4 text-secondary flex flex-col items-center justify-between gap-4 p-4 text-center text-sm md:flex-row md:p-8"
 	>
 		<div class="md:ml-24">
 			<p class="font-content">
