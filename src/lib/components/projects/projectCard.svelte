@@ -9,8 +9,14 @@
 		onclick?: () => void;
 	}>();
 
-	// Parse gridSize to get column and row spans
-	const [colSpan, rowSpan] = project.gridSize.split('x').map(Number);
+	// Parse gridSize to get column and row spans (reactive so it updates when `project` changes)
+	let colSpan = $state(1);
+	let rowSpan = $state(1);
+	$effect(() => {
+		const [c, r] = (project?.gridSize ?? '1x1').split('x').map(Number);
+		colSpan = c;
+		rowSpan = r;
+	});
 </script>
 
 <div style="grid-column: span {colSpan}; grid-row: span {rowSpan};" class="project-card-wrapper">
