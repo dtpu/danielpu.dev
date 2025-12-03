@@ -130,7 +130,7 @@
 					</ContentSection>
 
 					<ContentSection id="skills" title="skills">
-						<p class="text-primary">coming soon...</p>
+						Coming soon!
 					</ContentSection>
 					<div class="p-10"></div>
 				</div>
