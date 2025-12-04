@@ -143,6 +143,7 @@ const projects: Project[] = [
 		github: 'https://github.com/danielp1218/GoogleMinesweeperBot',
 		tech: ['Python', 'win32', 'PyAutoGUI', 'Numpy', 'Pillow'],
 		thumbnail: '/images/projects/googleminesweeper.gif',
+		video: '/videos/projects/minesweeper.mp4',
 		gridSize: '1x1'
 	},
 	{
