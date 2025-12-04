@@ -25,4 +25,3 @@ vite.config.ts.timestamp-*
 .idea
 .vscode
 src/routes/test
-static/videos

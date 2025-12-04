@@ -1,5 +1,3 @@
-import { PUBLIC_BLOB_STORAGE_URL } from '$env/static/public';
-
 export type Project = {
 	title: string;
 	subTitle?: string; // optional subtitle (next to title)
@@ -168,11 +166,5 @@ const projects: Project[] = [
 		gridSize: '2x1'
 	}
 ];
-
-for (const project of projects) {
-	if (project.video) {
-		project.video = `${PUBLIC_BLOB_STORAGE_URL}${project.video}`;
-	}
-}
 
 export { projects };
