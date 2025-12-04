@@ -95,12 +95,25 @@
 					</CardItem>
 
 					<CardItem translateZ={80} class="mb-6 rounded-xl shadow-2xl sm:mb-8">
+						{#if project.video}
+							<video
+								src={project.video}
+								aria-label={`${project.title} preview`}
+								class="h-36 w-full rounded-xl object-cover sm:h-48"
+								autoplay
+								muted
+								loop
+								playsinline
+							>
+								<track kind="captions" src={''} srcLang="en" label="English captions" default />
+							</video>
+						{:else}
 						<img
 							src={project.fullImage ? project.fullImage : project.thumbnail}
 							alt={`${project.title} preview`}
 							class="h-36 w-full rounded-xl object-cover sm:h-48"
-							style={project.imageFilter ? 'filter: var(--filter-settings);' : ''}
 						/>
+						{/if}
 					</CardItem>
 
 					<!-- tech -->

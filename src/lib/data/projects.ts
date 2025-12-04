@@ -9,6 +9,7 @@ export type Project = {
 	tech: string[]; // technologies used
 	thumbnail: string; // thumbnail image URL
 	fullImage?: string; // full image URL for modal
+	video?: string; // video URL, will take precedence over fullImage
 	imageFilter?: boolean;
 	gridSize: '1x1' | '2x1' | '1x2' | '2x2';
 };
@@ -23,6 +24,19 @@ export const projects: Project[] = [
 		thumbnail: '/images/projects/personalWebsite.gif',
 		imageFilter: true,
 		gridSize: '2x2'
+	},
+	{
+		title: 'FlowBoard',
+		subTitle: 'Second Place @ HackWestern 2025',
+		oneLiner: '👨‍🎨 The ergonomic way to storyboard.',
+		description: 'Draw motion instructions on an interactive canvas, and FlowBoard transforms your sketches into context-aware video clips. Uses Google Vertex AI (Veo 3.1 & Gemini 2.5) to generate videos frame-by-frame with seamless merging.',
+		link: 'https://flowboard.tech',
+		github: 'https://github.com/austinjiann/FlowBoard',
+		devpost: 'https://devpost.com/software/flowboard-bdpqzg',
+		tech: ['TypeScript', 'Python', 'Vertex AI', 'Google Cloud', 'Tldraw', 'Supabase', 'Redis'],
+		thumbnail: '/images/projects/flowboard.gif',
+		video: '/videos/projects/flowboard.mp4',
+		gridSize: '2x1'
 	},
 	{
 		title: 'Mr. Goose',
@@ -82,6 +96,7 @@ export const projects: Project[] = [
 		github: 'https://github.com/danielp1218/SuikaGame',
 		tech: ['Java'],
 		thumbnail: '/images/projects/suikagame.gif',
+		video: '/videos/projects/suika.mp4',
 		gridSize: '1x2'
 	},
 	{
