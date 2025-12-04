@@ -30,6 +30,7 @@
 		"vite": "^6.0.0"
 	},
 	"dependencies": {
+		"@vercel/analytics": "^1.6.1",
 		"@vercel/blob": "^2.0.0",
 		"pixel-profile": "workspace:*",
 		"pixel-profile-server": "workspace:*",
