@@ -2,7 +2,7 @@
  * Copyright (c) 2020 Anurag Hazra
  * https://github.com/anuraghazra/github-readme-stats/blob/master/api/status/up.js
  */
-import { hasMessage, parseString } from '../utils/index.js';
+import { hasMessage, parseString } from '../utils';
 import { AxiosResponse } from 'axios';
 import { Hono } from 'hono';
 import { request, retryer } from 'pixel-profile';

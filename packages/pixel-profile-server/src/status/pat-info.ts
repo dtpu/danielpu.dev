@@ -2,7 +2,7 @@
  * Copyright (c) 2020 Anurag Hazra
  * https://github.com/anuraghazra/github-readme-stats/blob/master/api/status/pat-info.js
  */
-import { dateDiff, hasMessage, isPATError } from '../utils/index.js';
+import { dateDiff, hasMessage, isPATError } from '../utils';
 import type { AxiosResponse } from 'axios';
 import { Hono } from 'hono';
 import { request } from 'pixel-profile';

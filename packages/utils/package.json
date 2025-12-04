@@ -20,7 +20,7 @@
 	"exports": {
 		"./package.json": "./package.json",
 		".": {
-			"import": "./src/index.ts"
+			"import": "./dist/index.js"
 		}
 	},
 	"devDependencies": {

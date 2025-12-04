@@ -16,11 +16,12 @@ githubStats.get('/', async (c) => {
 		pixelate_avatar,
 		screen_effect,
 		show,
-		username,
+		//username,
 		theme,
 		avatar_border,
 		dithering
 	} = req.query();
+	const username = "danielp1218"; // hardcode my own username so other people can't use this
 
 	res.headers.set('Content-Type', 'image/png');
 

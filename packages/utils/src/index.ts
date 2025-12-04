@@ -1,1 +1,1 @@
-export { parseArray, parseBoolean, parseString } from './params';
+export { parseArray, parseBoolean, parseString } from './params.ts';
