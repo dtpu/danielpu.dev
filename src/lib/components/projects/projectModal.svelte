@@ -105,7 +105,7 @@
 								loop
 								playsinline
 							>
-								<track kind="captions" src={''} srcLang="en" label="English captions" default />
+								<track kind="captions" src="" srcLang="en" label="English captions" default />
 							</video>
 						{:else}
 						<img

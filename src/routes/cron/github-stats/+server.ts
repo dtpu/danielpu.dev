@@ -8,20 +8,22 @@ const RETRIES = 4;
 export const GET = async (req) => {
 	const fullURL = new URL(req.url);
 	const imageURL = `${fullURL.origin}${relativeImagePath}`;
-    for (let attempt = 1; attempt <= RETRIES; attempt++) {
-        try {
-	        const res = await fetch(`${imageURL}`);
-            if (res.ok) {
-                const imageFile = await res.arrayBuffer();
-                return await uploadToBlob(imageFile);
-            } else {
-                console.log(`Attempt ${attempt} failed: Received status ${res.status}`);
-            }
-        } catch (error) {
-            console.log(`Attempt ${attempt} failed:`, error);
-        }
-    }
-    return new Response('Failed to fetch GitHub stats image after multiple attempts.', { status: 500 });
+	for (let attempt = 1; attempt <= RETRIES; attempt++) {
+		try {
+			const res = await fetch(`${imageURL}`);
+			if (res.ok) {
+				const imageFile = await res.arrayBuffer();
+				return await uploadToBlob(imageFile);
+			} else {
+				console.log(`Attempt ${attempt} failed: Received status ${res.status}`);
+			}
+		} catch (error) {
+			console.log(`Attempt ${attempt} failed:`, error);
+		}
+	}
+	return new Response('Failed to fetch GitHub stats image after multiple attempts.', {
+		status: 500
+	});
 };
 
 // Note: url is uploaded to https://yzm0cfbfopzjsgx7.public.blob.vercel-storage.com/danielp1218/github-stats.png

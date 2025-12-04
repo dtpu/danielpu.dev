@@ -23,7 +23,7 @@
 				<hr class="border-secondary m-4 w-24 border-t-2" />
 			</span>
 			<h3 class="text-secondary text-lg italic">
-				CS @ UWaterloo, looking for opportunities in tech!
+				CS @ UWaterloo, looking for s26 coops 🌼!
 			</h3>
 		</div>
 		<Contacts />
