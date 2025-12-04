@@ -1,3 +1,5 @@
+import { PUBLIC_BLOB_STORAGE_URL } from '$env/static/public';
+
 export type Project = {
 	title: string;
 	subTitle?: string; // optional subtitle (next to title)
@@ -14,7 +16,7 @@ export type Project = {
 	gridSize: '1x1' | '2x1' | '1x2' | '2x2';
 };
 
-export const projects: Project[] = [
+const projects: Project[] = [
 	{
 		title: 'Personal Website',
 		description: 'My personal portfolio website. Made with love.',
@@ -165,3 +167,11 @@ export const projects: Project[] = [
 		gridSize: '2x1'
 	}
 ];
+
+for (const project of projects) {
+	if (project.video) {
+		project.video = `${PUBLIC_BLOB_STORAGE_URL}${project.video}`;
+	}
+}
+
+export { projects };
