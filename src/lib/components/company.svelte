@@ -8,6 +8,6 @@
 <Link {href}>
 	<span class="flex items-center">
 		<ImageIcon {src} />
-		{name}
+		<span>{name}</span>
 	</span>
 </Link>

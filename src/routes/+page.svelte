@@ -48,8 +48,9 @@
 					<ContentSection id="about" title="about me" contentXPadding={true}>
 						<AnimatedList style="list-style-type: '➢  ';">
 							<li class="mt-4 mb-2 text-xl leading-relaxed">
-								<p class="flex flex-wrap">
-									Bachelor of Computer Science @ <Company
+								<p>
+									Bachelor of Computer Science @ 
+									<Company
 										href="https://uwaterloo.ca/"
 										name="UWaterloo"
 										src="/images/logos/uwaterloo.webp"
@@ -57,7 +58,7 @@
 								</p>
 							</li>
 							<li class="mb-2 text-xl leading-relaxed">
-								<p class="flex flex-wrap">
+								<p>
 									Prev. Research Programmer @
 									<Company
 										href="https://research.sunnybrook.ca/"
@@ -70,7 +71,7 @@
 								<strong>17×</strong> hackathon winner, <strong>22×</strong> participant
 								<ul class="pl-5" style="list-style-type: '▹  ';">
 									<li>
-										<p class="flex flex-wrap">
+										<p>
 											2× Finalist @
 											<Company
 												href="https://hackthenorth.com/"
@@ -80,8 +81,10 @@
 										</p>
 									</li>
 									<li>
-										<p class="flex flex-wrap">
-											1<span class="text-[0.7em]">st</span> &nbsp;place @
+										<p>
+											<span>
+												1<span class="text-[0.7em] align-super">st</span> place @
+											</span>
 											<Company
 												href="https://www.jamhacks.ca/"
 												name="JAMHacks"
@@ -90,7 +93,7 @@
 										</p>
 									</li>
 									<li>
-										<p class="flex flex-wrap break-words">
+										<p>
 											Organizing
 											<Company
 												href="https://www.uwdatascience.ca/cxc"
