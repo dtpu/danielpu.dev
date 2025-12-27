@@ -17,7 +17,7 @@
 
 <div class="p-2">
 	<div
-		class="bento-grid display-[grid] mx-auto grid max-w-[1200px] [grid-auto-flow:dense] auto-rows-[200px] grid-cols-2 gap-1 sm:auto-rows-[220px] lg:auto-rows-[250px] lg:grid-cols-3"
+		class="bento-grid display-[grid] mx-auto grid max-w-[1200px] grid-flow-dense auto-rows-[200px] grid-cols-2 gap-1 sm:auto-rows-[220px] lg:auto-rows-[250px] lg:grid-cols-3"
 	>
 		{#each projects as project (project.title)}
 			<ProjectCard {project} onclick={() => openModal(project)} />

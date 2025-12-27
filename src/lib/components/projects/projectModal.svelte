@@ -108,11 +108,11 @@
 								<track kind="captions" src="" srcLang="en" label="English captions" default />
 							</video>
 						{:else}
-						<img
-							src={project.fullImage ? project.fullImage : project.thumbnail}
-							alt={`${project.title} preview`}
-							class="h-36 w-full rounded-xl object-cover sm:h-48"
-						/>
+							<img
+								src={project.fullImage ? project.fullImage : project.thumbnail}
+								alt={`${project.title} preview`}
+								class="h-36 w-full rounded-xl object-cover sm:h-48"
+							/>
 						{/if}
 					</CardItem>
 
@@ -139,7 +139,7 @@
 									class="flex items-center gap-1 py-1.5 text-xs font-medium transition-colors sm:gap-1 sm:py-2 sm:text-sm"
 									aria-label="Visit project website"
 								>
-									<Website class="h-3.5 w-3.5 mr-1 sm:h-4 sm:w-4" />
+									<Website class="mr-1 h-3.5 w-3.5 sm:h-4 sm:w-4" />
 									Website
 								</Link>
 							{/if}
@@ -150,7 +150,7 @@
 									class="flex items-center gap-1 py-1.5 text-xs font-medium transition-colors sm:gap-1 sm:py-2 sm:text-sm"
 									aria-label="View on GitHub"
 								>
-									<Github class="h-3.5 w-3.5 mr-1 sm:h-4 sm:w-4" />
+									<Github class="mr-1 h-3.5 w-3.5 sm:h-4 sm:w-4" />
 									GitHub
 								</Link>
 							{/if}
@@ -161,7 +161,7 @@
 									class="mx-2 flex items-center gap-1 py-1.5 text-xs font-medium transition-colors sm:gap-1 sm:py-2 sm:text-sm"
 									aria-label="View on Devpost"
 								>
-									<Devpost class="h-3.5 w-3.5 mr-1 sm:h-4 sm:w-4" />
+									<Devpost class="mr-1 h-3.5 w-3.5 sm:h-4 sm:w-4" />
 									Devpost
 								</Link>
 							{/if}

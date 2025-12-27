@@ -12,7 +12,7 @@
 
 <footer>
 	<ContentSection id="footer">
-		<div class="text-sm font-title text-secondary">
+		<div class="font-title text-secondary text-sm">
 			<p>
 				Made with
 				<span class="text-red-500" aria-label="love" role="img">♥</span>
@@ -41,13 +41,13 @@
 			<p>
 				Last updated: <span class="text-primary">{lastUpdated}</span>
 			</p>
-			<br>
+			<br />
 		</div>
 		<UWCSWebring />
 	</ContentSection>
 	<!-- <div -->
-		<!-- class="border-background border-l-4 text-secondary flex flex-col items-center justify-between gap-4 p-4 text-center text-sm md:flex-row md:p-8" -->
+	<!-- class="border-background border-l-4 text-secondary flex flex-col items-center justify-between gap-4 p-4 text-center text-sm md:flex-row md:p-8" -->
 	<!-- > -->
-		
+
 	<!-- </div>  -->
 </footer>

@@ -3,7 +3,7 @@
 	import { themeStore } from '$lib/stores/themeStore.svelte';
 	import { fade } from 'svelte/transition';
 	import { browser } from '$app/environment';
-	import { injectAnalytics } from '@vercel/analytics/sveltekit'
+	import { injectAnalytics } from '@vercel/analytics/sveltekit';
 	injectAnalytics();
 
 	let { children } = $props();

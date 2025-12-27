@@ -22,9 +22,7 @@
 			<span class="flex w-full justify-center">
 				<hr class="border-secondary m-4 w-24 border-t-2" />
 			</span>
-			<h3 class="text-secondary text-lg italic">
-				CS @ UWaterloo, looking for s26 coops 🌼!
-			</h3>
+			<h3 class="text-secondary text-lg italic">CS @ UWaterloo, looking for s26 coops 🌼!</h3>
 		</div>
 		<Contacts />
 	</div>
@@ -49,7 +47,7 @@
 						<AnimatedList style="list-style-type: '➢  ';">
 							<li class="mt-4 mb-2 text-xl leading-relaxed">
 								<p>
-									Bachelor of Computer Science @ 
+									Bachelor of Computer Science @
 									<Company
 										href="https://uwaterloo.ca/"
 										name="UWaterloo"
@@ -83,7 +81,7 @@
 									<li>
 										<p>
 											<span>
-												1<span class="text-[0.7em] align-super">st</span> place @
+												1<span class="align-super text-[0.7em]">st</span> place @
 											</span>
 											<Company
 												href="https://www.jamhacks.ca/"
@@ -127,10 +125,8 @@
 						</AnimatedList>
 					</ContentSection>
 
-					<ContentSection id="skills" title="skills">
-						Coming soon!
-					</ContentSection>
-					<Footer />	
+					<ContentSection id="skills" title="skills">Coming soon!</ContentSection>
+					<Footer />
 				</div>
 			</div>
 		</div>
