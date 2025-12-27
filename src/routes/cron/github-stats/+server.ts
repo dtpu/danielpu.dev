@@ -2,14 +2,13 @@ import { put } from '@vercel/blob';
 import { dev } from '$app/environment';
 
 const relativeImagePath =
-	'/api/github-stats?dithering=true&include_all_commits=true&pixelate_avatar=false&theme=fuji&color=%23ffffffFF&hide=issues';
+	'/api/pixel-profile/github-stats?dithering=true&include_all_commits=true&pixelate_avatar=false&theme=fuji&color=%23ffffffFF&hide=issues';
 
 const RETRIES = 4;
 
-
 export const GET = async (req) => {
 	const fullURL = new URL(req.url);
-	const imageURL = `${ dev ? fullURL.origin : 'https://danielpu.dev'}${relativeImagePath}`;
+	const imageURL = `${dev ? fullURL.origin : 'https://danielpu.dev'}${relativeImagePath}`;
 	for (let attempt = 1; attempt <= RETRIES; attempt++) {
 		try {
 			const res = await fetch(`${imageURL}`);

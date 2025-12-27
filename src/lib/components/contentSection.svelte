@@ -2,7 +2,7 @@
 	import type { Snippet } from 'svelte';
 
 	let { title, id, children, contentXPadding } = $props<{
-		title: string;
+		title?: string;
 		id: string;
 		children: Snippet;
 		contentXPadding?: boolean;
@@ -11,7 +11,9 @@
 
 <section {id} class="px-8 pt-20">
 	<div class="mx-auto max-w-6xl">
-		<h2 class="font-title text-secondary mb-12 text-4xl">{title}</h2>
+		{#if title}
+			<h2 class="font-title text-secondary mb-12 text-4xl">{title}</h2>
+		{/if}
 		<div
 			class="text-primary font-content text-xl leading-relaxed {contentXPadding
 				? 'px-4 md:px-16'

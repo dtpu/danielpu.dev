@@ -3,5 +3,7 @@ import type { RequestHandler } from '@sveltejs/kit';
 
 export const fallback: RequestHandler = ({ request, getClientAddress }) => {
 	request.headers.set('x-forwarded-for', getClientAddress());
-	return app.request(request);
+
+	const newUrl = request.url.replace('/api/pixel-profile', '/api');
+	return app.request(new Request(newUrl, request));
 };

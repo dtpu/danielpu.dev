@@ -6,8 +6,6 @@
 </script>
 
 <Link {href}>
-	<span class="flex items-center">
-		<ImageIcon {src} />
-		<span>{name}</span>
-	</span>
+	<ImageIcon {src} />
+	<span>{name}</span>
 </Link>

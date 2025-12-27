@@ -130,9 +130,8 @@
 					<ContentSection id="skills" title="skills">
 						Coming soon!
 					</ContentSection>
-					<div class="p-10"></div>
+					<Footer />	
 				</div>
-				<Footer />
 			</div>
 		</div>
 	{/if}

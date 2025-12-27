@@ -1,13 +1,19 @@
 <script lang="ts">
+	import ContentSection from '$lib/components/contentSection.svelte';
 	import UWCSWebring from './UWCSWebring.svelte';
+	import { onMount } from 'svelte';
+	let lastUpdated: string = $state('tomorrow');
+	onMount(async () => {
+		const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+		const res = await fetch(`/api/repo/last-updated?timezone=${timezone}`);
+		lastUpdated = await res.text();
+	});
 </script>
 
 <footer>
-	<div
-		class="border-background border-l-4 text-secondary flex flex-col items-center justify-between gap-4 p-4 text-center text-sm md:flex-row md:p-8"
-	>
-		<div class="md:ml-24">
-			<p class="font-content">
+	<ContentSection id="footer">
+		<div class="text-sm font-title text-secondary">
+			<p>
 				Made with
 				<span class="text-red-500" aria-label="love" role="img">♥</span>
 				and
@@ -32,7 +38,16 @@
 					class="text-primary hover:text-primary/70 underline">Live2D</a
 				>.
 			</p>
+			<p>
+				Last updated: <span class="text-primary">{lastUpdated}</span>
+			</p>
+			<br>
 		</div>
 		<UWCSWebring />
-	</div>
+	</ContentSection>
+	<!-- <div -->
+		<!-- class="border-background border-l-4 text-secondary flex flex-col items-center justify-between gap-4 p-4 text-center text-sm md:flex-row md:p-8" -->
+	<!-- > -->
+		
+	<!-- </div>  -->
 </footer>

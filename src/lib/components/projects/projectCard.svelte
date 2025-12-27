@@ -40,10 +40,10 @@
 					style={project.imageFilter ? 'filter: var(--filter-settings);' : ''}
 				/>
 				<div
-					class="from-background via-background/90 absolute right-0 bottom-0 left-0 h-50 bg-gradient-to-t to-transparent"
+					class="from-background via-background/90 absolute right-0 bottom-0 left-0 h-50 bg-linear-to-t to-transparent"
 				></div>
 				<div
-					class="gradient-backdrop-blur absolute right-0 bottom-0 left-0 h-50 bg-gradient-to-t"
+					class="gradient-backdrop-blur absolute right-0 bottom-0 left-0 h-50 bg-linear-to-t"
 				></div>
 			</CardItem>
 

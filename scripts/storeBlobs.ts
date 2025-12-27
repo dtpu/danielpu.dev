@@ -48,11 +48,9 @@ const promptUser = async () => {
 	console.log('Scanning static directory for files...\n');
 	const staticDir = 'static';
 	const allFiles = await getFilesRecursively(staticDir);
-	
+
 	// Filter to only show video files
-	const videoFiles = allFiles.filter(file => 
-		/\.(mp4|mov)$/i.test(file)
-	);
+	const videoFiles = allFiles.filter((file) => /\.(mp4|mov)$/i.test(file));
 
 	console.log('Available files:');
 	videoFiles.forEach((file, index) => {
@@ -60,7 +58,7 @@ const promptUser = async () => {
 	});
 
 	console.log('\nEnter file numbers to upload (comma-separated, or "all" for all files):');
-	
+
 	const input = await new Promise<string>((resolve) => {
 		process.stdin.once('data', (data) => {
 			resolve(data.toString().trim());
@@ -72,10 +70,10 @@ const promptUser = async () => {
 	if (input.toLowerCase() === 'all') {
 		selectedFiles = videoFiles;
 	} else {
-		const indices = input.split(',').map(num => parseInt(num.trim()) - 1);
+		const indices = input.split(',').map((num) => parseInt(num.trim()) - 1);
 		selectedFiles = indices
-			.filter(i => i >= 0 && i < videoFiles.length)
-			.map(i => videoFiles[i]);
+			.filter((i) => i >= 0 && i < videoFiles.length)
+			.map((i) => videoFiles[i]);
 	}
 
 	if (selectedFiles.length === 0) {
@@ -84,7 +82,7 @@ const promptUser = async () => {
 	}
 
 	console.log(`\nUploading ${selectedFiles.length} file(s)...\n`);
-	
+
 	for (const file of selectedFiles) {
 		await uploadFile(file);
 	}

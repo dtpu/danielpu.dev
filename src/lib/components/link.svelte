@@ -20,5 +20,7 @@
 	class="inline-block after:bg-secondary/20 hover:after:bg-secondary/80 relative mx-1 w-fit no-underline after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:transition-colors after:duration-300 after:content-[''] {className}"
 	{...others}
 >
-	{@render children()}
+	<span class="flex items-center">
+		{@render children()}
+	</span>
 </a>
