@@ -6,7 +6,7 @@
 
 <div
 	out:fade={{ duration: 600, easing: cubicOut }}
-	class="bg-background text-primary fixed inset-0 z-[9999] flex h-screen w-screen items-center justify-center"
+	class="bg-background text-primary fixed inset-0 z-9999 flex h-screen w-screen items-center justify-center"
 >
 	<div class="loading-content w-[55%] md:w-[22%]">
 		<SignatureAnimation duration={0.35} />

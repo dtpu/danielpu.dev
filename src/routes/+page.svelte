@@ -40,21 +40,27 @@
 	</div>
 
 	<div
-		class="text-primary flex min-h-screen w-full flex-col bg-secondary/5 md:ml-[40%] md:w-[60%] md:flex-row"
+		class="text-primary relative flex min-h-screen w-full flex-col bg-secondary/5 md:ml-[40%] md:w-[60%] md:flex-row"
 	>
-			<div class="relative hidden w-14 flex-none md:block">
-				<div class="sticky top-6 mx-auto mt-16 w-10">
-					<ThemeSelect />
-				</div>
+		<!-- Bookmark ribbon (desktop only) -->
+		<div class="bookmark absolute top-0 right-8 z-20 hidden md:block" title="Nice find!">
+			<div class="bookmark-ribbon"></div>
+		</div>
+
+		<!-- Theme sidebar (desktop only) -->
+		<div class="notebook-sidebar relative hidden w-14 flex-none md:block">
+			<div class="sticky top-6 mx-auto mt-16 w-10">
+				<ThemeSelect />
 			</div>
-			<div class="flex w-full flex-1 flex-col">
-				<div class="absolute top-0 right-0 z-50 m-4 md:hidden">
-					<ThemeSelect />
-				</div>
-				<div
-					class="content-panel border-secondary/10 border-l-2 md:border-l-4 md:p-6 lg:p-8"
-					in:fade={{ delay: 400, duration: 400 }}
-				>
+		</div>
+		<div class="flex w-full flex-1 flex-col">
+			<div class="absolute top-0 right-0 z-50 m-4 md:hidden">
+				<ThemeSelect />
+			</div>
+			<div
+				class="content-panel border-secondary/20 md:border-l-2 md:p-6 lg:p-8"
+				in:fade={{ delay: 400, duration: 400 }}
+			>
 					<ContentSection id="about" title="about me" contentXPadding={true}>
 						<AnimatedList style="list-style-type: '➢  ';">
 							<li class="mt-4 mb-2 text-xl leading-relaxed">
@@ -142,3 +148,49 @@
 			</div>
 		</div>
 </div>
+
+<style>
+	.notebook-sidebar {
+		background: linear-gradient(to right, rgba(128, 128, 128, 0.06) 0%, transparent 100%);
+	}
+
+	.bookmark {
+		cursor: pointer;
+	}
+
+	.bookmark-ribbon {
+		width: 28px;
+		height: 80px;
+		position: relative;
+		background-color: var(--color-primary);
+		box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+		transition:
+			height 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+			transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+			box-shadow 0.3s ease,
+			background-color 0.8s ease;
+	}
+
+	.bookmark-ribbon::after {
+		content: '';
+		position: absolute;
+		bottom: -11px;
+		left: 0;
+		width: 0;
+		height: 0;
+		border-left: 14px solid transparent;
+		border-right: 14px solid transparent;
+		border-top: 12px solid var(--color-primary);
+		transition: border-top-color 0.8s ease;
+	}
+
+	.bookmark:hover .bookmark-ribbon {
+		height: 100px;
+		box-shadow: 3px 4px 12px rgba(0, 0, 0, 0.2);
+	}
+
+	.bookmark:active .bookmark-ribbon {
+		height: 70px;
+		transition-duration: 0.1s;
+	}
+</style>
