@@ -11,29 +11,77 @@
 }
 
 @theme {
+	/* Colors */
 	--color-background: 240, 240, 240;
 	--color-primary: 34, 34, 34;
 	--color-secondary: 85, 85, 85;
 
+	/* Typography */
 	--font-title: AdobeTextPro, serif;
 	--font-content: segoeui, sans-serif;
+
+	/* Transition Timings */
+	--duration-fast: 150ms;
+	--duration-normal: 300ms;
+	--duration-slow: 500ms;
+	--duration-theme: 800ms;
+	--ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+	--ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+	--ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+	/* Shadows */
+	--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+	--shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+	--shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
-/* Add global transition for elements using theme colors */
+/* Theme color transitions - slightly faster for snappier feel */
 * {
 	transition-property:
 		background-color, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, color, border-color,
 		filter, fill, stroke;
-	transition-duration: 1000ms;
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-
+	transition-duration: var(--duration-theme);
+	transition-timing-function: var(--ease-in-out);
 	scroll-behavior: smooth;
+}
+
+/* Interactive elements get faster, more responsive transitions */
+a,
+button,
+[role='button'] {
+	transition:
+		transform var(--duration-fast) var(--ease-out),
+		box-shadow var(--duration-fast) var(--ease-out),
+		opacity var(--duration-normal) var(--ease-out),
+		background-color var(--duration-theme) var(--ease-in-out),
+		color var(--duration-theme) var(--ease-in-out),
+		border-color var(--duration-theme) var(--ease-in-out);
 }
 
 body {
 	background-color: var(--color-background);
 	color: rgb(var(--color-primary));
 	font-size: 16px;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography refinements */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	letter-spacing: -0.02em;
+	line-height: 1.2;
+}
+
+/* Focus states for accessibility */
+:focus-visible {
+	outline: 2px solid rgb(var(--color-primary) / 0.5);
+	outline-offset: 2px;
 }
 
 @media screen and (max-width: 768px) {

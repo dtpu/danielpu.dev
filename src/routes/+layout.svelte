@@ -2,6 +2,7 @@
 	import '../app.css';
 	import { themeStore } from '$lib/stores/themeStore.svelte';
 	import { fade } from 'svelte/transition';
+	import { cubicOut } from 'svelte/easing';
 	import { browser } from '$app/environment';
 	import { injectAnalytics } from '@vercel/analytics/sveltekit';
 	injectAnalytics();
@@ -24,6 +25,6 @@
 	});
 </script>
 
-<div in:fade class="bg-background h-full min-h-screen w-full">
+<div in:fade={{ duration: 400, easing: cubicOut }} class="bg-background h-full min-h-screen w-full">
 	{@render children()}
 </div>

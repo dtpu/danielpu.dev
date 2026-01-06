@@ -17,10 +17,38 @@
 	{href}
 	target="_blank"
 	rel="noopener noreferrer"
-	class="after:bg-secondary/20 hover:after:bg-secondary/80 relative mx-1 inline-block w-fit no-underline after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:transition-colors after:duration-300 after:content-[''] {className}"
+	class="link-hover relative mx-1 inline-block w-fit no-underline {className}"
 	{...others}
 >
 	<span class="flex items-center">
 		{@render children()}
 	</span>
 </a>
+
+<style>
+	.link-hover {
+		transition: transform 150ms cubic-bezier(0.22, 1, 0.36, 1);
+	}
+
+	.link-hover::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		width: 0;
+		height: 2px;
+		background-color: rgb(var(--color-secondary) / 0.6);
+		transition:
+			width 200ms cubic-bezier(0.22, 1, 0.36, 1),
+			left 200ms cubic-bezier(0.22, 1, 0.36, 1);
+	}
+
+	.link-hover:hover::after {
+		width: 100%;
+		left: 0;
+	}
+
+	.link-hover:hover {
+		transform: translateY(-1px);
+	}
+</style>

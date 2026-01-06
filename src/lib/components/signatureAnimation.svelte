@@ -46,15 +46,16 @@
 </script>
 
 {#key `${animationKey}-${duration}`}
-	<div class="flex w-full items-center justify-center">
+	<div class="signature-container flex w-full items-center justify-center">
 		<svg bind:this={svgElement} xmlns="http://www.w3.org/2000/svg" {viewBox} class="h-auto w-full">
 			{#each pathData as path, index (index)}
 				<path
 					d={path.d}
 					stroke-width={path.strokeWidth}
-					stroke="black"
+					stroke="currentColor"
 					fill="none"
 					stroke-linecap="round"
+					stroke-linejoin="round"
 					stroke-dasharray="1000"
 					stroke-dashoffset="1000"
 				>
@@ -63,11 +64,29 @@
 						from="1000"
 						to="0"
 						dur="{duration}s"
-						begin="{index * (duration * 0.05)}s"
+						begin="{index * (duration * 0.04)}s"
 						fill="freeze"
+						calcMode="spline"
+						keySplines="0.4 0 0.2 1"
+						keyTimes="0;1"
 					/>
 				</path>
 			{/each}
 		</svg>
 	</div>
 {/key}
+
+<style>
+	.signature-container {
+		animation: fadeIn 0.3s ease-out;
+	}
+
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+</style>

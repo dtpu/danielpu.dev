@@ -23,10 +23,10 @@
 	<CardContainer
 		containerClass="w-full h-full"
 		class="h-full w-full"
-		perspective="{colSpan * rowSpan * 250}px"
+		perspective="{colSpan * rowSpan * 300}px"
 	>
 		<CardBody
-			class="border-primary/50 relative h-full w-full cursor-pointer border bg-gray-900"
+			class="card-body border-secondary/20 relative h-full w-full cursor-pointer overflow-hidden rounded-lg border bg-gray-900"
 			{onclick}
 			onkeydown={(e: KeyboardEvent) => e.key === 'Enter' && onclick?.()}
 			role="button"
@@ -35,33 +35,31 @@
 				<img
 					src={project.thumbnail}
 					alt={project.title}
-					class="h-full w-full object-cover"
+					class="h-full w-full object-cover transition-transform duration-500 ease-out"
 					loading="lazy"
 					style={project.imageFilter ? 'filter: var(--filter-settings);' : ''}
 				/>
 				<div
-					class="from-background via-background/90 absolute right-0 bottom-0 left-0 h-50 bg-linear-to-t to-transparent"
+					class="from-background via-background/95 absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t to-transparent"
 				></div>
-				<div
-					class="gradient-backdrop-blur absolute right-0 bottom-0 left-0 h-50 bg-linear-to-t"
-				></div>
+				<div class="gradient-backdrop-blur absolute inset-x-0 bottom-0 h-1/2"></div>
 			</CardItem>
 
 			<CardBody class="pointer-events-none absolute right-0 bottom-0 left-0 p-6">
 				<CardItem
 					as="h3"
-					translateZ={20}
-					translateY={-15}
-					class="text-primary text-shadow font-title text-2xl font-bold "
+					translateZ={25}
+					translateY={-12}
+					class="text-primary font-title text-xl font-bold md:text-2xl"
 				>
 					{project.title}
 				</CardItem>
 
 				<CardItem
 					as="p"
-					translateZ={10}
-					translateY={-5}
-					class="text-secondary text-shadow font-content mt-2 line-clamp-2 text-sm"
+					translateZ={15}
+					translateY={-4}
+					class="text-secondary font-content mt-2 line-clamp-2 text-sm"
 				>
 					{project.oneLiner ? project.oneLiner : project.description}
 				</CardItem>
@@ -79,9 +77,25 @@
 		min-width: 0;
 	}
 
+	.project-card-wrapper :global(.card-body) {
+		transition:
+			box-shadow 300ms cubic-bezier(0.22, 1, 0.36, 1),
+			border-color 300ms cubic-bezier(0.22, 1, 0.36, 1);
+	}
+
+	.project-card-wrapper:hover :global(.card-body) {
+		box-shadow:
+			0 20px 25px -5px rgba(0, 0, 0, 0.15),
+			0 8px 10px -6px rgba(0, 0, 0, 0.1);
+	}
+
+	.project-card-wrapper:hover :global(img) {
+		transform: scale(1.03);
+	}
+
 	.gradient-backdrop-blur {
-		backdrop-filter: blur(12px);
-		-webkit-backdrop-filter: blur(12px);
+		backdrop-filter: blur(8px);
+		-webkit-backdrop-filter: blur(8px);
 		-webkit-mask-image: linear-gradient(to top, black, transparent);
 		mask-image: linear-gradient(to top, black, transparent);
 	}

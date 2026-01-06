@@ -28,17 +28,17 @@
 <svelte:window onkeydown={handleKeydown} />
 
 <div
-	class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-2 backdrop-blur-sm sm:p-4"
+	class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-2 backdrop-blur-md sm:p-4"
 	onclick={handleBackdropClick}
 	onkeydown={(e) => e.key === 'Enter' && handleBackdropClick()}
-	transition:fade={{ duration: 250, easing: cubicOut }}
+	transition:fade={{ duration: 200, easing: cubicOut }}
 	role="button"
 	tabindex="0"
 >
 	<div
 		onclick={(e) => e.stopPropagation()}
 		onkeydown={(e) => e.stopPropagation()}
-		transition:scale={{ duration: 400, start: 0.9, easing: cubicOut }}
+		transition:scale={{ duration: 350, start: 0.95, easing: cubicOut }}
 		class="w-[90%] max-w-md sm:max-w-lg"
 		role="dialog"
 		aria-modal="true"
@@ -46,7 +46,7 @@
 	>
 		<CardContainer containerClass="w-full" class="w-full" perspective="1500px">
 			<CardBody
-				class="bg-background border-primary/30 font-content relative w-full rounded-xl border shadow-2xl"
+				class="bg-background border-secondary/20 font-content relative w-full rounded-2xl border shadow-2xl"
 			>
 				<CardItem translateZ={100} translateX={-20} class="absolute top-4 right-4 z-20">
 					<button

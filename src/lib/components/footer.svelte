@@ -10,44 +10,54 @@
 	});
 </script>
 
-<footer>
+<footer class="border-secondary/10 mt-16 border-t">
 	<ContentSection id="footer">
-		<div class="font-title text-secondary text-sm">
+		<div class="font-content text-secondary space-y-2 text-sm">
 			<p>
 				Made with
 				<span class="text-red-500" aria-label="love" role="img">♥</span>
 				and
-				<span aria-label="coffee" role="img">🍵</span>
+				<span aria-label="matcha" role="img">🍵</span>
 				using
 				<a
 					href="https://svelte.dev/"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="text-primary hover:text-primary/70 underline">SvelteKit</a
+					class="footer-link text-primary">SvelteKit</a
 				>,
 				<a
 					href="https://tailwindcss.com/"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="text-primary hover:text-primary/70 underline">TailwindCSS</a
+					class="footer-link text-primary">TailwindCSS</a
 				>, and
 				<a
 					href="https://live2d.com/en/"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="text-primary hover:text-primary/70 underline">Live2D</a
+					class="footer-link text-primary">Live2D</a
 				>.
 			</p>
-			<p>
-				Last updated: <span class="text-primary">{lastUpdated}</span>
+			<p class="text-secondary/70">
+				Last updated: <span class="text-secondary">{lastUpdated}</span>
 			</p>
-			<br />
 		</div>
-		<UWCSWebring />
+		<div class="mt-6">
+			<UWCSWebring />
+		</div>
 	</ContentSection>
-	<!-- <div -->
-	<!-- class="border-background border-l-4 text-secondary flex flex-col items-center justify-between gap-4 p-4 text-center text-sm md:flex-row md:p-8" -->
-	<!-- > -->
-
-	<!-- </div>  -->
 </footer>
+
+<style>
+	.footer-link {
+		text-decoration: underline;
+		text-underline-offset: 2px;
+		transition:
+			opacity 150ms ease-out,
+			color 800ms cubic-bezier(0.4, 0, 0.2, 1);
+	}
+
+	.footer-link:hover {
+		opacity: 0.7;
+	}
+</style>

@@ -5,7 +5,7 @@
 	let { name, src, href } = $props<{ name: string; src: string; href: string }>();
 </script>
 
-<Link {href}>
+<Link {href} class="inline-flex items-center gap-0.5">
 	<ImageIcon {src} />
-	<span>{name}</span>
+	<span class="font-medium">{name}</span>
 </Link>

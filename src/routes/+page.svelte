@@ -12,29 +12,38 @@
 	import Footer from '$lib/components/footer.svelte';
 </script>
 
-<div class="flex w-full flex-col md:flex-row">
+{#if $loading}
+	<Loading />
+{/if}
+
+<div
+	class="flex w-full flex-col md:flex-row {$loading ? 'invisible' : 'visible'}"
+	class:opacity-0={$loading}
+>
 	<div
-		class="relative w-full py-16 md:fixed md:top-0 md:left-0 md:z-10 md:h-screen md:w-[40%] md:content-center"
+		class="relative w-full py-12 md:fixed md:top-0 md:left-0 md:z-10 md:h-screen md:w-[40%] md:content-center md:py-16"
 	>
 		<Live2D />
-		<div class="text-secondary font-title right-0 left-0 m-4 text-center text-3xl">
-			<h1>hi i'm <span class="text-primary font-black">Daniel Pu</span></h1>
-			<span class="flex w-full justify-center">
-				<hr class="border-secondary m-4 w-24 border-t-2" />
+		<div class="text-secondary font-title right-0 left-0 m-4 text-center">
+			<h1 class="text-2xl md:text-3xl">
+				hi i'm <span class="text-primary font-black tracking-tight">Daniel Pu</span>
+			</h1>
+			<span class="my-4 flex w-full justify-center">
+				<div class="from-secondary/0 via-secondary/40 to-secondary/0 h-px w-32 bg-gradient-to-r"
+				></div>
 			</span>
-			<h3 class="text-secondary text-lg italic">CS @ UWaterloo, looking for s26 coops 🌼!</h3>
+			<h3 class="text-secondary/80 text-base italic md:text-lg">
+				CS @ UWaterloo, looking for s26 coops
+			</h3>
 		</div>
 		<Contacts />
 	</div>
 
-	{#if $loading}
-		<Loading />
-	{:else}
-		<div
-			class="text-primary flex min-h-screen w-full flex-col bg-gray-400/10 md:ml-[40%] md:w-[60%] md:flex-row"
-		>
-			<div class="relative hidden w-16 flex-none md:block">
-				<div class="sticky top-4 mx-auto mt-20 w-10">
+	<div
+		class="text-primary flex min-h-screen w-full flex-col bg-secondary/5 md:ml-[40%] md:w-[60%] md:flex-row"
+	>
+			<div class="relative hidden w-14 flex-none md:block">
+				<div class="sticky top-6 mx-auto mt-16 w-10">
 					<ThemeSelect />
 				</div>
 			</div>
@@ -42,7 +51,10 @@
 				<div class="absolute top-0 right-0 z-50 m-4 md:hidden">
 					<ThemeSelect />
 				</div>
-				<div class="border-background border-l-4 md:p-8" in:fade={{ delay: 500, duration: 500 }}>
+				<div
+					class="content-panel border-secondary/10 border-l-2 md:border-l-4 md:p-6 lg:p-8"
+					in:fade={{ delay: 400, duration: 400 }}
+				>
 					<ContentSection id="about" title="about me" contentXPadding={true}>
 						<AnimatedList style="list-style-type: '➢  ';">
 							<li class="mt-4 mb-2 text-xl leading-relaxed">
@@ -109,8 +121,7 @@
 								</ul>
 							</li>
 							<li class="mb-2 text-xl leading-relaxed">
-								Passionate about <strong>full-stack</strong>, <strong>AI/ML</strong>, and all things
-								tech.
+								I find <strong>backend</strong>, <strong>systems</strong>, <strong>AI/ML</strong>, and emerging tech really cool!
 							</li>
 							<li class="mb-2 text-xl leading-relaxed">
 								In my free time, you can find me playing badminton, working on cool projects, or
@@ -130,5 +141,4 @@
 				</div>
 			</div>
 		</div>
-	{/if}
 </div>

@@ -64,14 +64,17 @@
 <style>
 	:global(.fade-in-item) {
 		opacity: 0;
-		transform: translateY(20px);
+		transform: translateY(12px);
+		filter: blur(4px);
 		transition:
-			opacity 0.8s ease-out,
-			transform 0.8s ease-out;
+			opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+			transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+			filter 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 	}
 
 	:global(.fade-in-item.visible) {
 		opacity: 1;
 		transform: translateY(0);
+		filter: blur(0);
 	}
 </style>
