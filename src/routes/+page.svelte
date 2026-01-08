@@ -29,7 +29,7 @@
 				hi i'm <span class="text-primary font-black tracking-tight">Daniel Pu</span>
 			</h1>
 			<span class="my-4 flex w-full justify-center">
-				<div class="from-secondary/0 via-secondary/40 to-secondary/0 h-px w-32 bg-gradient-to-r"
+				<div class="from-secondary/0 via-secondary/40 to-secondary/0 h-px w-32 bg-linear-to-r"
 				></div>
 			</span>
 			<h3 class="text-secondary/80 text-base italic md:text-lg">
