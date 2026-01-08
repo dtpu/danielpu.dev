@@ -42,7 +42,7 @@
 				<div
 					class="from-background via-background/95 absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t to-transparent"
 				></div>
-				<div class="gradient-backdrop-blur absolute inset-x-0 bottom-0 h-1/2"></div>
+				<div class="gradient-backdrop-blur absolute inset-x-0 bottom-0 h-1/2 rounded-lg"></div>
 			</CardItem>
 
 			<CardBody class="pointer-events-none absolute right-0 bottom-0 left-0 p-6">
