@@ -4,8 +4,8 @@ import { clamp, fetchStats, renderStats } from 'pixel-profile';
 
 const githubStats = new Hono();
 
-githubStats.get('/', async (c) => {
-	const { req, res, body } = c;
+export const getStatsCard = async (req: Request) => {
+	const urlparams = new URLSearchParams(req.url);
 	const {
 		background,
 		cache_seconds = `${CONSTANTS.CARD_CACHE_SECONDS}`,
@@ -20,9 +20,10 @@ githubStats.get('/', async (c) => {
 		theme,
 		avatar_border,
 		dithering
-	} = req.query();
+	} = Object.fromEntries(urlparams.entries());
 	const username = "danielp1218"; // hardcode my own username so other people can't use this
 
+	const res = new Response();
 	res.headers.set('Content-Type', 'image/png');
 
 	try {
@@ -67,19 +68,17 @@ githubStats.get('/', async (c) => {
 
 		const result = await renderStats(stats, options);
 
-		return body(new Uint8Array(result));
+		return new Response(new Uint8Array(result), {
+			headers: res.headers
+		});
 	} catch (err) {
 		console.log(err);
-
-		res.headers.set(
-			'Cache-Control',
-			`max-age=${CONSTANTS.ERROR_CACHE_SECONDS / 2}, s-maxage=${
-				CONSTANTS.ERROR_CACHE_SECONDS
-			}, stale-while-revalidate=${CONSTANTS.ONE_DAY}`
-		);
-
-		return c.html('');
+		return Response.error();
 	}
+}
+
+githubStats.get('/', async (c) => {
+	return getStatsCard(new Request(c.req.url));
 });
 
 export default githubStats;
