@@ -1,7 +1,7 @@
 import { PUBLIC_BLOB_STORAGE_URL } from '$env/static/public';
 
 export const GET = async () => {
-	const res = await fetch(`${PUBLIC_BLOB_STORAGE_URL}/danielp1218/github-stats.png`);
+	const res = await fetch(`${PUBLIC_BLOB_STORAGE_URL}/dtpu/github-stats.png`);
 	if (res.ok) {
 		const imageFile = await res.arrayBuffer();
 		return new Response(imageFile, {

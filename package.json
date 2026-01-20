@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/danielp1218/danielpu.dev.git"
+		"url": "https://github.com/dtpu/danielpu.dev.git"
 	},
 	"workspaces": [
 		"packages/**"

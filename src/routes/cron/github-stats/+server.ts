@@ -27,10 +27,10 @@ export const GET = async (req) => {
 	});
 };
 
-// Note: url is uploaded to https://yzm0cfbfopzjsgx7.public.blob.vercel-storage.com/danielp1218/github-stats.png
+// Note: url is uploaded to https://yzm0cfbfopzjsgx7.public.blob.vercel-storage.com/dtpu/github-stats.png
 const uploadToBlob = async (imageFile: ArrayBuffer) => {
 	try {
-		const { url } = await put('danielp1218/github-stats.png', imageFile, {
+		const { url } = await put('dtpu/github-stats.png', imageFile, {
 			access: 'public',
 			cacheControlMaxAge: 86400, // 1 day in seconds
 			allowOverwrite: true

@@ -21,7 +21,7 @@ export const getStatsCard = async (req: Request) => {
 		avatar_border,
 		dithering
 	} = Object.fromEntries(urlparams.entries());
-	const username = "danielp1218"; // hardcode my own username so other people can't use this
+	const username = "dtpu"; // hardcode my own username so other people can't use this
 
 	const res = new Response();
 	res.headers.set('Content-Type', 'image/png');

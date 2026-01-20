@@ -1,7 +1,7 @@
 export const GET = async (request) => {
 	const tz = request.url.searchParams.get('timezone');
 
-	const response = await fetch('https://api.github.com/repos/danielp1218/danielpu.dev');
+	const response = await fetch('https://api.github.com/repos/dtpu/danielpu.dev');
 	if (!response.ok) {
 		return new Response('Failed to fetch repository data.', { status: 500 });
 	}

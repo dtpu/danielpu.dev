@@ -6,7 +6,7 @@
 
 <div class="flex justify-center gap-5">
 	<a
-		href="https://github.com/danielp1218"
+		href="https://github.com/dtpu"
 		target="_blank"
 		rel="noopener noreferrer"
 		class="contact-link text-primary hover:text-secondary"
