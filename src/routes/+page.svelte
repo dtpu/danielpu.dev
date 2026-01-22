@@ -12,16 +12,10 @@
 	import Footer from '$lib/components/footer.svelte';
 </script>
 
-{#if $loading}
-	<Loading />
-{/if}
-
-<div
-	class="flex w-full flex-col md:flex-row {$loading ? 'invisible' : 'visible'}"
-	class:opacity-0={$loading}
->
+<div class="flex w-full flex-col md:flex-row">
 	<div
 		class="relative w-full py-12 md:fixed md:top-0 md:left-0 md:z-10 md:h-screen md:w-[40%] md:content-center md:py-16"
+		class:opacity-0={$loading}
 	>
 		<Live2D />
 		<div class="text-secondary font-title right-0 left-0 m-4 text-center">
@@ -29,7 +23,8 @@
 				hi i'm <span class="text-primary font-black tracking-tight">Daniel Pu</span>
 			</h1>
 			<span class="my-4 flex w-full justify-center">
-				<div class="from-secondary/0 via-secondary/40 to-secondary/0 h-px w-32 bg-linear-to-r"
+				<div
+					class="from-secondary/0 via-secondary/40 to-secondary/0 h-px w-32 bg-linear-to-r"
 				></div>
 			</span>
 			<h3 class="text-secondary/80 text-base italic md:text-lg">
@@ -39,28 +34,31 @@
 		<Contacts />
 	</div>
 
-	<div
-		class="text-primary relative flex min-h-screen w-full flex-col bg-secondary/5 md:ml-[40%] md:w-[60%] md:flex-row"
-	>
-		<!-- Bookmark ribbon (desktop only) -->
-		<div class="bookmark absolute top-0 right-8 z-20 hidden md:block" title="Nice find!">
-			<div class="bookmark-ribbon"></div>
-		</div>
+	{#if $loading}
+		<Loading />
+	{:else}
+		<div
+			class="text-primary bg-secondary/5 relative flex min-h-screen w-full flex-col md:ml-[40%] md:w-[60%] md:flex-row"
+		>
+			<!-- Bookmark ribbon (desktop only) -->
+			<div class="bookmark absolute top-0 right-8 z-20 hidden md:block" title="Nice find!">
+				<div class="bookmark-ribbon"></div>
+			</div>
 
-		<!-- Theme sidebar (desktop only) -->
-		<div class="notebook-sidebar relative hidden w-14 flex-none md:block">
-			<div class="sticky top-6 mx-auto mt-16 w-10">
-				<ThemeSelect />
+			<!-- Theme sidebar (desktop only) -->
+			<div class="notebook-sidebar relative hidden w-14 flex-none md:block">
+				<div class="sticky top-6 mx-auto mt-16 w-10">
+					<ThemeSelect />
+				</div>
 			</div>
-		</div>
-		<div class="flex w-full flex-1 flex-col">
-			<div class="absolute top-0 right-0 z-50 m-4 md:hidden">
-				<ThemeSelect />
-			</div>
-			<div
-				class="content-panel border-secondary/20 md:border-l-2 md:p-6 lg:p-8"
-				in:fade={{ delay: 400, duration: 400 }}
-			>
+			<div class="flex w-full flex-1 flex-col">
+				<div class="absolute top-0 right-0 z-50 m-4 md:hidden">
+					<ThemeSelect />
+				</div>
+				<div
+					class="content-panel border-secondary/20 md:border-l-2 md:p-6 lg:p-8"
+					in:fade={{ delay: 400, duration: 400 }}
+				>
 					<ContentSection id="about" title="about me" contentXPadding={true}>
 						<AnimatedList style="list-style-type: '➢  ';">
 							<li class="mt-4 mb-2 text-xl leading-relaxed">
@@ -127,7 +125,8 @@
 								</ul>
 							</li>
 							<li class="mb-2 text-xl leading-relaxed">
-								I find <strong>backend</strong>, <strong>systems</strong>, <strong>AI/ML</strong>, and emerging tech really cool!
+								I find <strong>backend</strong>, <strong>systems</strong>, <strong>AI/ML</strong>,
+								and emerging tech really cool!
 							</li>
 							<li class="mb-2 text-xl leading-relaxed">
 								In my free time, you can find me playing badminton, working on cool projects, or
@@ -147,6 +146,7 @@
 				</div>
 			</div>
 		</div>
+	{/if}
 </div>
 
 <style>

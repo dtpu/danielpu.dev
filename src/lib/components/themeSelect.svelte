@@ -15,9 +15,9 @@
 			onclick={() => themeStore.setTheme(themeName)}
 			aria-label="Change Theme to {themeName}"
 			title={themeName}
-			class="theme-btn group relative aspect-square h-4 w-4 items-center justify-center overflow-hidden rounded-full border-2 border-secondary/20 p-4 hover:scale-110 hover:border-secondary/50 focus:outline-none active:scale-95 {themeStore.name ===
+			class="theme-btn group border-secondary/20 hover:border-secondary/50 relative aspect-square h-4 w-4 items-center justify-center overflow-hidden rounded-full border-2 p-4 hover:scale-110 focus:outline-none active:scale-95 {themeStore.name ===
 			themeName
-				? 'ring-primary active ring-2 ring-offset-2 ring-offset-background'
+				? 'ring-primary active ring-offset-background ring-2 ring-offset-2'
 				: ''}"
 			style="background-color: {colour};"
 		>
