@@ -15,7 +15,7 @@
 		<Github class="h-6 w-6" />
 	</a>
 	<a
-		href="https://www.linkedin.com/in/danielpu1/"
+		href="https://www.linkedin.com/in/dtpu"
 		target="_blank"
 		rel="noopener noreferrer"
 		class="contact-link text-primary hover:text-secondary"
@@ -24,7 +24,7 @@
 		<Linkedin class="h-6 w-6" />
 	</a>
 	<a
-		href="mailto:danielpu2007@gmail.com"
+		href="mailto:dtpu@uwaterloo.ca"
 		class="contact-link text-primary hover:text-secondary"
 		aria-label="Email"
 	>
