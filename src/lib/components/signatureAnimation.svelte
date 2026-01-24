@@ -1,92 +1,112 @@
 <script lang="ts">
-	let { duration = 0.4 } = $props<{ duration?: number }>();
+  import { onMount } from 'svelte';
+  import signatureSvg from '$lib/images/signature.svg?raw';
 
-	let svgElement: SVGElement | undefined = $state();
-	let animationKey = $state(0);
-	let pathData: Array<{ d: string; strokeWidth: string }> = $state([]);
-	let viewBox = $state('');
+  let { duration = 0.4 } = $props<{ duration?: number }>();
 
-	// Function to load path data from the SVG file
-	async function loadPathData() {
-		try {
-			const response = await fetch('/images/signature.svg');
-			const svgText = await response.text();
+  let pathData = $state<Array<{ d: string; strokeWidth: string }>>([]);
+  let viewBox = $state(
+    '82.75 11.617000579833984 302.1518249511719 172'
+  );
 
-			// Parse the SVG content
-			const parser = new DOMParser();
-			const svgDoc = parser.parseFromString(svgText, 'image/svg+xml');
-			const svgRoot = svgDoc.documentElement;
+  let animate = $state(false);
+  let animationKey = $state(0);
 
-			// Get viewBox from the original SVG
-			viewBox = svgRoot.getAttribute('viewBox') || '82.75 11.617000579833984 302.1518249511719 172';
+  function parseSvgOnce() {
+    const parser = new DOMParser();
+    const svgDoc = parser.parseFromString(signatureSvg, 'image/svg+xml');
+    const svgRoot = svgDoc.documentElement;
 
-			// Extract all path elements
-			const paths = svgDoc.querySelectorAll('path');
-			pathData = Array.from(paths).map((path) => ({
-				d: path.getAttribute('d') || '',
-				strokeWidth: path.getAttribute('stroke-width') || '1'
-			}));
-		} catch (error) {
-			console.error('Failed to load signature SVG:', error);
-			// Fallback to default viewBox if loading fails
-			viewBox = '82.75 11.617000579833984 302.1518249511719 172';
-			pathData = [];
-		}
-	}
+    viewBox =
+      svgRoot.getAttribute('viewBox') ?? viewBox;
 
-	// Load path data when component mounts
-	$effect(() => {
-		loadPathData();
-	});
+    const paths = svgDoc.querySelectorAll('path');
+    pathData = Array.from(paths).map((p) => ({
+      d: p.getAttribute('d') ?? '',
+      strokeWidth: p.getAttribute('stroke-width') ?? '1'
+    }));
+  }
 
-	// Function to restart animation
-	export function restart() {
-		animationKey++;
-	}
+  onMount(() => {
+    parseSvgOnce();
+
+    // wait one frame so layout is committed before animating
+    requestAnimationFrame(() => {
+      animate = true;
+    });
+  });
+
+  export function restart() {
+  animate = false;
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => {
+      animate = true;
+    });
+  });
+}
+
 </script>
 
-{#key `${animationKey}-${duration}`}
-	<div class="signature-container flex w-full items-center justify-center">
-		<svg bind:this={svgElement} xmlns="http://www.w3.org/2000/svg" {viewBox} class="h-auto w-full">
-			{#each pathData as path, index (index)}
-				<path
-					d={path.d}
-					stroke-width={path.strokeWidth}
-					stroke="currentColor"
-					fill="none"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					stroke-dasharray="1000"
-					stroke-dashoffset="1000"
-				>
-					<animate
-						attributeName="stroke-dashoffset"
-						from="1000"
-						to="0"
-						dur="{duration}s"
-						begin="{index * (duration * 0.04)}s"
-						fill="freeze"
-						calcMode="spline"
-						keySplines="0.4 0 0.2 1"
-						keyTimes="0;1"
-					/>
-				</path>
-			{/each}
-		</svg>
-	</div>
-{/key}
+<div class="signature-container flex w-full items-center justify-center">
+  {#if pathData.length}
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      {viewBox}
+      class="signature-svg"
+      style="--dur:{duration}s"
+    >
+      {#each pathData as path, index}
+        <path
+          d={path.d}
+          stroke-width={path.strokeWidth}
+          stroke="currentColor"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="sig-path {animate ? 'animate' : ''}"
+          style="--delay:{index * duration * 0.04}s"
+        />
+      {/each}
+    </svg>
+  {/if}
+</div>
 
 <style>
-	.signature-container {
-		animation: fadeIn 0.3s ease-out;
-	}
+  .signature-container {
+    animation: fadeIn 0.3s ease-out;
+  }
 
-	@keyframes fadeIn {
-		from {
-			opacity: 0;
-		}
-		to {
-			opacity: 1;
-		}
-	}
+  .signature-svg {
+    width: 100%;
+    height: auto;
+    contain: layout paint;
+  }
+
+  .sig-path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+  }
+
+  .sig-path.animate {
+    animation: draw var(--dur) cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation-delay: var(--delay);
+  }
+
+  @keyframes draw {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sig-path {
+      animation: none !important;
+      stroke-dashoffset: 0;
+    }
+  }
 </style>
