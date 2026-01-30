@@ -141,7 +141,6 @@
 						</AnimatedList>
 					</ContentSection>
 
-					<ContentSection id="skills" title="skills">Coming soon!</ContentSection>
 					<Footer />
 				</div>
 			</div>

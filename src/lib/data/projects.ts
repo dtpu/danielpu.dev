@@ -16,16 +16,6 @@ export type Project = {
 
 const projects: Project[] = [
 	{
-		title: 'Personal Website',
-		description: 'My personal portfolio website. Made with love.',
-		link: 'https://www.danielpu.dev',
-		github: 'https://github.com/dtpu/PersonalWebsite',
-		tech: ['SvelteKit', 'TypeScript', 'TailwindCSS', 'Live2DCubism'],
-		thumbnail: '/images/projects/personalWebsite.gif',
-		imageFilter: true,
-		gridSize: '2x2'
-	},
-	{
 		title: 'FlowBoard',
 		subTitle: 'Second Place @ HackWestern 2025',
 		oneLiner: '👨‍🎨 The ergonomic way to storyboard.',
@@ -73,7 +63,7 @@ const projects: Project[] = [
         devpost: 'https://devpost.com/software/budget-defender',
 		tech: ['AWS', 'ElevenLabs', 'Javascript', 'Plasmo', 'Python', 'Svelte'],
 		thumbnail: '/images/projects/dimedefender.gif',
-		gridSize: '2x1'
+		gridSize: '1x1'
 	},
 	{
 		title: 'rainbolt.ai',
@@ -87,6 +77,16 @@ const projects: Project[] = [
 		thumbnail: 'images/projects/rainboltai.gif',
 		fullImage: 'images/projects/rainboltai.png',
 		gridSize: '2x1'
+	},
+	{
+		title: 'Personal Website',
+		description: 'My personal portfolio website. Made with love.',
+		link: 'https://www.danielpu.dev',
+		github: 'https://github.com/dtpu/PersonalWebsite',
+		tech: ['SvelteKit', 'TypeScript', 'TailwindCSS', 'Live2DCubism'],
+		thumbnail: '/images/projects/personalWebsite.gif',
+		imageFilter: true,
+		gridSize: '2x2'
 	},
 	{
 		title: 'Suika Game',
@@ -109,16 +109,6 @@ const projects: Project[] = [
 		tech: ['Svelte-kit', 'OpenAI', 'PocketBase', 'SQLite'],
 		thumbnail: '/images/projects/igniteai.gif',
 		fullImage: '/images/projects/igniteai.png',
-		gridSize: '1x1'
-	},
-	{
-		title: 'BF Interpreter',
-		description:
-			'Simple, fast, and clean Brainf**k interpreter with web-based IDE.',
-		link: 'https://dtpu.github.io/BFInterpreter/',
-		github: 'https://github.com/dtpu/BFInterpreter',
-		tech: ['Javascript', 'HTML', 'CSS'],
-		thumbnail: '/images/projects/bfinterpreter.png',
 		gridSize: '1x1'
 	},
 	{
