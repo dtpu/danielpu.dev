@@ -90,11 +90,11 @@
 								</p>
 							</li>
 							<li class="mb-2 text-xl leading-relaxed">
-								<strong>20×</strong> hackathon winner, <strong>26×</strong> participant
+								<strong>21×</strong> hackathon winner, <strong>26×</strong> participant
 								<ul class="pl-5" style="list-style-type: '▹  ';">
 									<li>
 										<p>
-											2× Finalist @
+											3× Finalist @
 											<Company
 												href="https://hackthenorth.com/"
 												name="Hack the North"
